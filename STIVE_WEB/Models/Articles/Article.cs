@@ -30,19 +30,24 @@ namespace STIVE_WEB.Models.Articles
 
         public byte[] Picture { get; set; }
 
-        public Article(string Name, string Ref, string Description, double UnitPrice, Guid? AnneeId, Guid? CapacityId, Guid? CepageId, Guid? FamilyId, Guid? SupplierId)
+        public Article(Guid id, Guid anneeId, Annee annee,Guid capacityId,Capacity capacity,Guid cepageId, Cepage cepage,Guid familyId, Family family,Guid supplierId, Supplier supplier, string name,string @ref,string description, double unitPrice, byte[] picture)
         {
-
-            Id = Guid.NewGuid();
-            this.Name = Name;
-            this.Ref = Ref;
-            this.Description = Description;
-            this.UnitPrice = UnitPrice;
-            this.AnneeId = AnneeId;
-            this.CapacityId = CapacityId;
-            this.CepageId = CepageId;
-            this.FamilyId = FamilyId;
-            this.SupplierId = SupplierId;
+            this.Id = id;
+            this.AnneeId = anneeId;
+            this.Annee = annee;
+            this.CapacityId = capacityId;
+            this.Capacity = capacity;
+            this.CepageId = cepageId;
+            this.Cepage = cepage;
+            this.FamilyId = familyId;
+            this.Family = family;
+            this.SupplierId = supplierId;
+            this.Supplier = supplier;
+            this.Name = name;
+            this.Ref = @ref;
+            this.Description = description;
+            this.UnitPrice = unitPrice;
+            this.Picture = picture;
         }
 
 

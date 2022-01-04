@@ -28,7 +28,7 @@ namespace STIVE_WEB.Controllers
 
                 foreach (var id in articlesId)
                 {
-                    string endpoint = BaseUrl + "/api/article" + id;
+                    string endpoint = BaseUrl + "/api/article/" + id;
 
                     HttpResponseMessage response = await client.GetAsync(endpoint);
 
