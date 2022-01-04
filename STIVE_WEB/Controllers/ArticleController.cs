@@ -26,8 +26,12 @@ namespace STIVE_WEB.Controllers
 
             return View(articles);
         }
-
-        public ViewResult AddToBasket(string id)
+        /// <summary>
+        /// Ajoute un produit dans la session
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ViewResult AddToCart(string id)
         {
             //Penser à supprimer la vue, elle sert que pour les test
             HttpContext.Session.SetString("Cart", id);
