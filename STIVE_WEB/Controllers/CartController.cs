@@ -1,18 +1,21 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
+using STIVE_WEB.Models;
 using System.Collections.Generic;
-using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace STIVE_WEB.Controllers
 {
     public class CartController : Controller
     {
+        static HttpClient client = new HttpClient();
+        private string BaseUrl = "https://localhost:44395";
+
         /// <summary>
         /// Affiche le panier contenant tous les articles
         /// </summary>
-        public IActionResult Checkout()
+        public async Task<IActionResult> CheckoutAsync()
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString("Cart")))
             {
@@ -20,10 +23,21 @@ namespace STIVE_WEB.Controllers
             }
             else
             {
-                var sessionData = HttpContext.Session.GetString("Cart");
+                string[] articlesId = HttpContext.Session.GetString("Cart").Split(",");
+                List<Article> articlesList = new List<Article>();
 
+                foreach (var id in articlesId)
+                {
+                    string endpoint = BaseUrl + "/api/article" + id;
 
-                return View();
+                    HttpResponseMessage response = await client.GetAsync(endpoint);
+
+                    Article article = await response.Content.ReadAsAsync<Article>();
+                    //Demander à Lucile si elle peut afficher les données d'un article pareil que pour la route /api/article
+                    articlesList.Add(article);
+                }
+
+                return View(articlesList);
             }
         }
     }
