@@ -52,7 +52,5 @@ namespace STIVE_WEB.Controllers
 
             return Redirect("/article/All");
         }
-
-
     }
 }
