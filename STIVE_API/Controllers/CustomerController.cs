@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using STIVE_API.Data;
 using STIVE_API.Data.Models.Users;
+using STIVE_API.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,10 +37,12 @@ namespace STIVE_API.Controllers
         }
 
         [HttpPost("new")]
-        public ActionResult Post(string LastName, string FirstName, string Address, string Cp, string City, string Email, string PhoneNumber, string Password)
+        public ActionResult Post(string LastName, string FirstName, string Address, string Cp, string City, string Email, string PhoneNumber, string Password, string PasswordVerify)
         {
 
             var customer = new Customer(LastName, FirstName, Email, Password, PhoneNumber, Address, Cp, City);
+
+            if(!PasswordHelper.CheckPasswordVerify(Password, PasswordVerify)) return BadRequest();
 
             using (var db = new StiveDbContext())
             {
@@ -67,6 +70,7 @@ namespace STIVE_API.Controllers
                     var customer = db.Customers.Single(o => o.Id == elem.Id);
                     if (customer != null)
                     {
+                        
                         if(elem.LastName != null) customer.LastName = elem.LastName ;
                         if (elem.FirstName != null) customer.FirstName = elem.FirstName;
                         if (elem.PhoneNumber != null) customer.PhoneNumber = elem.PhoneNumber;
@@ -85,8 +89,8 @@ namespace STIVE_API.Controllers
             {
                 throw;
             }
-
         }
+
         [HttpPut("{id}/password")]
         public ActionResult UpdatePassword(Customer elem)
         {
@@ -108,6 +112,33 @@ namespace STIVE_API.Controllers
             catch (System.Exception)
             {
                 throw;
+            }
+
+        }
+
+        [HttpDelete("{id}")]
+        public ActionResult DeleteCustomer(Guid id)
+        {
+
+            using (var db = new StiveDbContext())
+            {
+                try
+                {
+                    var customer = db.Customers.Single(o => o.Id == id);
+                    if (customer != null)
+                    {
+                        db.Customers.Remove(customer);
+                        db.SaveChanges();
+                        return Ok();
+
+                    }
+                    return NotFound();
+
+                }
+                catch (System.Exception)
+                {
+                    throw;
+                }
             }
 
         }

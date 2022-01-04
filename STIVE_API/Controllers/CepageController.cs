@@ -22,7 +22,6 @@ namespace STIVE_API.Controllers
                 var cepages = db.Cepage.ToList();
                 return cepages;
             }
-
         }
 
         [HttpGet("{id}")]
