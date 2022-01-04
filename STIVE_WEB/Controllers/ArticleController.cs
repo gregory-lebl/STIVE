@@ -33,12 +33,6 @@ namespace STIVE_WEB.Controllers
         /// <returns></returns>
         public RedirectResult AddToCart(string id)
         {
-            //Penser à supprimer la vue, elle sert que pour les test
-            
-
-            //Vérifier que la session existe
-            //Si elle existe pas, la créer et lui ajouter l'id
-            //Si elle existe, ajouter l'id à la suite avec une "," comme separateur
 
             if (string.IsNullOrEmpty(HttpContext.Session.GetString("Cart")))
             {
