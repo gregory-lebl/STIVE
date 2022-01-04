@@ -27,23 +27,36 @@ namespace STIVE_WEB.Controllers
             return View(articles);
         }
         /// <summary>
-        /// Ajoute un produit dans la session
+        /// Ajoute un produit dans la session Cart qui gère le panier
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public ViewResult AddToCart(string id)
+        public RedirectResult AddToCart(string id)
         {
             //Penser à supprimer la vue, elle sert que pour les test
-            HttpContext.Session.SetString("Cart", id);
-
-            var session = HttpContext.Session.Get("Cart");
-
-            var data = HttpContext.Session.GetString("Cart");
-
-            return View(session);
-
-                //@objectinfo.print
             
+
+            //Vérifier que la session existe
+            //Si elle existe pas, la créer et lui ajouter l'id
+            //Si elle existe, ajouter l'id à la suite avec une "," comme separateur
+
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("Cart")))
+            {
+                //Création de la session "Cart" contenant l'id des articles ajoutés au panier
+                HttpContext.Session.SetString("Cart", id);
+            }
+            else
+            {
+                //Si elle existe, ajouter l'id à la suite avec une "," comme separateur
+                var currentSessionValue = HttpContext.Session.GetString("Cart");
+                var currentId = id;
+                var newSessionValue = currentSessionValue + "," + id; //Récupération de l'ancienne string de la session et ajout du nouvelle id dans la session
+
+                HttpContext.Session.Clear(); //Je supprime la session actuelle
+                HttpContext.Session.SetString("Cart", newSessionValue); //Je recrée nouvelle session contenant la nouvelle string d'id
+            }
+
+            return Redirect("/article/All");
         }
 
 

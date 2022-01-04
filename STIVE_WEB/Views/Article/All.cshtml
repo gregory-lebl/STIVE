@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Liste de tous les articles";
     @model List<STIVE_WEB.Models.Article>;
+    @using Microsoft.AspNetCore.Http;
 }
 
 <partial name="/Views/Shared/_Header.cshtml" />
@@ -9,21 +10,30 @@
     <div class="row">
         @foreach (var item in Model)
         {
-        <div class="card" style="width: 18rem; background-color: #F0F0F0;">
-            <div class="card-body">
-                <strong class="card-title">@item.Name</strong>
-                <br />
-                <span>Année : @item.Year</span>
-                <br />
-                <span>Contenance : @item.Capacity</span>
-                <br />
-                <strong style="color: #7b0405;">@item.UnitPrice €</strong>
-                <br />
-                <p class="card-text">@item.Description</p>
-                <br />
-                <a asp-controller="article" asp-action="AddToCart" asp-route-id="@item.Id" class="btn" style="background-color: #7b0405; color: white;">Ajouter au panier</a>
+            <div class="card" style="width: 18rem; background-color: #F0F0F0;">
+                <div class="card-body">
+                    <strong class="card-title">@item.Name</strong>
+                    <br />
+                    <span>Année : @item.Year</span>
+                    <br />
+                    <span>Contenance : @item.Capacity</span>
+                    <br />
+                    <strong style="color: #7b0405;">@item.UnitPrice €</strong>
+                    <br />
+                    <p class="card-text">@item.Description</p>
+                    <br />
+                    <a asp-controller="article" asp-action="AddToCart" asp-route-id="@item.Id" class="btn" style="background-color: #7b0405; color: white;">Ajouter au panier</a>
+                </div>
             </div>
-        </div>
+        }
+        <br />
+        @if (string.IsNullOrEmpty(@Context.Session.GetString("Cart")))
+        {
+            <h2>Session vide</h2>
+        }
+        else
+        {
+            <h2>Contenu de la session : @Context.Session.GetString("Cart")</h2>
         }
     </div>
 </div>
