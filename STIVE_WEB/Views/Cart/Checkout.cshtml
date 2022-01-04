@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Votre panier";
+    @model List<STIVE_WEB.Models.Article>;
+    @using Microsoft.AspNetCore.Http;
+}
+
+@if (string.IsNullOrEmpty(@Context.Session.GetString("Cart")))
+{
+    <p style="color:red;">Votre panier est vide :(</p>
+}
+else
+{
+    <h1>Conteu de votre panier</h1>
+    @Context.Session.GetString("Cart")
+}
