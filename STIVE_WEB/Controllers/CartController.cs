@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using STIVE_WEB.Models;
+using STIVE_WEB.Models.Articles;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -33,7 +33,7 @@ namespace STIVE_WEB.Controllers
                     HttpResponseMessage response = await client.GetAsync(endpoint);
 
                     Article article = await response.Content.ReadAsAsync<Article>();
-                    //Demander à Lucile si elle peut afficher les données d'un article pareil que pour la route /api/article
+                    
                     articlesList.Add(article);
                 }
 

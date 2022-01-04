@@ -1,6 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Votre panier";
-    @model List<STIVE_WEB.Models.Article>;
+    @model List<STIVE_WEB.Models.Articles.Article>;
     @using Microsoft.AspNetCore.Http;
 }
 
@@ -13,8 +13,4 @@ else
 {
     <h1>Contenu de votre panier</h1>
     <br />
-    @foreach (var item in Model)
-    {
-        <h1>@item.Name</h1>
-    }
 }

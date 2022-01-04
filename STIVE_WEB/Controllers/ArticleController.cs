@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using STIVE_WEB.Models;
+using STIVE_WEB.Models.Articles;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;

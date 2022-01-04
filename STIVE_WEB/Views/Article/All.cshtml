@@ -1,6 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Liste de tous les articles";
-    @model List<STIVE_WEB.Models.Article>;
+    @model List<STIVE_WEB.Models.Articles.Article>;
     @using Microsoft.AspNetCore.Http;
 }
 
@@ -14,7 +14,7 @@
                 <div class="card-body">
                     <strong class="card-title">@item.Name</strong>
                     <br />
-                    <span>Année : @item.Year</span>
+                    <span>Année : @item.Annee</span>
                     <br />
                     <span>Contenance : @item.Capacity</span>
                     <br />
