@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using STIVE_WEB.Models.Articles;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -32,13 +33,28 @@ namespace STIVE_WEB.Controllers
 
                     HttpResponseMessage response = await client.GetAsync(endpoint);
 
-                    Article article = await response.Content.ReadAsAsync<Article>();
-                    
-                    articlesList.Add(article);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        Article article = await response.Content.ReadAsAsync<Article>();
+
+                        articlesList.Add(article);
+                    } 
+
+
                 }
 
                 return View(articlesList);
             }
         }
+
+        public RedirectResult DeleteItemFromCheckout(string id)
+        {
+            var session = HttpContext.Session.GetString("Cart");
+            var toto = id;
+
+            return Redirect("/Cart/Checkout");
+        }
+
+
     }
 }

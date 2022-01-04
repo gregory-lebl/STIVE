@@ -13,4 +13,21 @@ else
 {
     <h1>Contenu de votre panier</h1>
     <br />
+    @foreach (var item in Model)
+    {
+        <div style="border-bottom: 1px solid grey;">
+            <strong>@item.Name</strong>
+            <br />
+            <p>Année : @item.Annee.Number</p>
+            <br />
+            <p>Contenance : @item.Capacity.BottleCapacity cl</p>
+            <br />
+            <strong>@item.UnitPrice.ToString("N2") €</strong>
+            <input type="number"/>
+            <a asp-controller="Cart" asp-action="DeleteItemFromCheckout" asp-route-id="@item.Id">
+                <i class="fas fa-trash-alt"></i>
+            </a>
+        </div>
+
+    }
 }
