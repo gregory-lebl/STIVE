@@ -24,6 +24,8 @@ namespace STIVE_API.Data.Models.Articles
         public virtual Family Family { get; set; } // Variable de navigation entre les tables
         public Guid? SupplierId { get; set; }
         public virtual Supplier Supplier { get; set; } // Variable de navigation entre les tables
+        public Guid? StockId { get; set; }
+        public virtual Stock Stock { get; set; } // Variable de navigation entre les tables
 
 
         //NO KEY
@@ -31,10 +33,9 @@ namespace STIVE_API.Data.Models.Articles
         public string Ref {get ;set ;}
         public string Description { get; set; }
         public double UnitPrice { get; set; }
-
         public byte[] Picture { get; set; }
 
-        public Article(string Name, string Ref, string Description, double UnitPrice, Guid? AnneeId, Guid? CapacityId, Guid? CepageId, Guid? FamilyId, Guid? SupplierId)
+        public Article(string Name, string Ref, string Description, double UnitPrice, Guid? AnneeId, Guid? CapacityId, Guid? CepageId, Guid? FamilyId, Guid? SupplierId, Guid? StockId)
         {
 
             Id = Guid.NewGuid();
@@ -47,6 +48,7 @@ namespace STIVE_API.Data.Models.Articles
             this.CepageId = CepageId;
             this.FamilyId = FamilyId;
             this.SupplierId = SupplierId;
+            this.StockId = StockId;
         }
 
 
