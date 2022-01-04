@@ -36,6 +36,7 @@ namespace StiveLourd.Pages
             // 
             // navContainer
             // 
+            this.navContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(252)))));
             this.navContainer.Controls.Add(this.label1);
             this.navContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navContainer.Location = new System.Drawing.Point(0, 0);

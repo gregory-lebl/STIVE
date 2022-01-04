@@ -13,7 +13,9 @@ namespace StiveLourd.Pages
             _main = main;
         }
 
-        private void btn_connexion_Click(object sender, EventArgs e)
+        
+
+        private void btn_connexion_Click_1(object sender, EventArgs e)
         {
             Database.Path = null;
             _main.NavigateTo("HOME");

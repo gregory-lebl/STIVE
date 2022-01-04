@@ -18,5 +18,26 @@ namespace StiveLourd.Pages
             InitializeComponent();
             _main = main;
         }
+
+        private void FollowBy_Click(object sender, EventArgs e)
+        {
+            //TODO Récupérer et afficher nom du user connecté
+        }
+
+        private void DateLabel_Click(object sender, EventArgs e)
+        {
+            //TODO Ajouter date du jour
+            
+        }
+
+        private void formFournisseur_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -31,30 +31,31 @@ namespace StiveLourd.Pages
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddSuppliers));
             this.formFournisseur = new System.Windows.Forms.Panel();
-            this.btn_ajouter_fournisseur = new System.Windows.Forms.Button();
-            this.TitrePage = new System.Windows.Forms.Label();
-            this.textBoxNomFour = new System.Windows.Forms.TextBox();
-            this.labelNomFour = new System.Windows.Forms.Label();
-            this.textBoxNumSIRET = new System.Windows.Forms.TextBox();
-            this.labelNumSIRET = new System.Windows.Forms.Label();
-            this.textBoxNumTelFour = new System.Windows.Forms.TextBox();
-            this.labelNumTelFour = new System.Windows.Forms.Label();
-            this.textBoxAdresseFour = new System.Windows.Forms.TextBox();
-            this.labelAdresseFour = new System.Windows.Forms.Label();
-            this.textBoxCPFour = new System.Windows.Forms.TextBox();
-            this.labelCPFour = new System.Windows.Forms.Label();
-            this.labelVilleFour = new System.Windows.Forms.Label();
-            this.textBoxVilleFour = new System.Windows.Forms.TextBox();
             this.panel_search_ref_prod = new System.Windows.Forms.Panel();
             this.btn_new_ref_prod = new System.Windows.Forms.Button();
             this.textBoxProdFour = new System.Windows.Forms.TextBox();
             this.labelProdFour = new System.Windows.Forms.Label();
+            this.textBoxVilleFour = new System.Windows.Forms.TextBox();
+            this.labelVilleFour = new System.Windows.Forms.Label();
+            this.textBoxCPFour = new System.Windows.Forms.TextBox();
+            this.labelCPFour = new System.Windows.Forms.Label();
+            this.textBoxAdresseFour = new System.Windows.Forms.TextBox();
+            this.labelAdresseFour = new System.Windows.Forms.Label();
+            this.textBoxNumTelFour = new System.Windows.Forms.TextBox();
+            this.labelNumTelFour = new System.Windows.Forms.Label();
+            this.textBoxNumSIRET = new System.Windows.Forms.TextBox();
+            this.labelNumSIRET = new System.Windows.Forms.Label();
+            this.btn_ajouter_fournisseur = new System.Windows.Forms.Button();
+            this.TitrePage = new System.Windows.Forms.Label();
+            this.textBoxNomFour = new System.Windows.Forms.TextBox();
+            this.labelNomFour = new System.Windows.Forms.Label();
             this.formFournisseur.SuspendLayout();
             this.panel_search_ref_prod.SuspendLayout();
             this.SuspendLayout();
             // 
             // formFournisseur
             // 
+            this.formFournisseur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(252)))));
             this.formFournisseur.Controls.Add(this.panel_search_ref_prod);
             this.formFournisseur.Controls.Add(this.textBoxVilleFour);
             this.formFournisseur.Controls.Add(this.labelVilleFour);
@@ -75,6 +76,135 @@ namespace StiveLourd.Pages
             this.formFournisseur.Name = "formFournisseur";
             this.formFournisseur.Size = new System.Drawing.Size(1031, 703);
             this.formFournisseur.TabIndex = 3;
+            // 
+            // panel_search_ref_prod
+            // 
+            this.panel_search_ref_prod.Controls.Add(this.btn_new_ref_prod);
+            this.panel_search_ref_prod.Controls.Add(this.textBoxProdFour);
+            this.panel_search_ref_prod.Controls.Add(this.labelProdFour);
+            this.panel_search_ref_prod.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel_search_ref_prod.Location = new System.Drawing.Point(16, 357);
+            this.panel_search_ref_prod.Name = "panel_search_ref_prod";
+            this.panel_search_ref_prod.Size = new System.Drawing.Size(233, 106);
+            this.panel_search_ref_prod.TabIndex = 39;
+            // 
+            // btn_new_ref_prod
+            // 
+            this.btn_new_ref_prod.AutoSize = true;
+            this.btn_new_ref_prod.Image = ((System.Drawing.Image)(resources.GetObject("btn_new_ref_prod.Image")));
+            this.btn_new_ref_prod.Location = new System.Drawing.Point(3, 67);
+            this.btn_new_ref_prod.Name = "btn_new_ref_prod";
+            this.btn_new_ref_prod.Size = new System.Drawing.Size(36, 36);
+            this.btn_new_ref_prod.TabIndex = 41;
+            this.btn_new_ref_prod.UseVisualStyleBackColor = false;
+            // 
+            // textBoxProdFour
+            // 
+            this.textBoxProdFour.Location = new System.Drawing.Point(3, 28);
+            this.textBoxProdFour.Name = "textBoxProdFour";
+            this.textBoxProdFour.Size = new System.Drawing.Size(227, 30);
+            this.textBoxProdFour.TabIndex = 40;
+            // 
+            // labelProdFour
+            // 
+            this.labelProdFour.AutoSize = true;
+            this.labelProdFour.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelProdFour.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(22)))), ((int)(((byte)(40)))));
+            this.labelProdFour.Location = new System.Drawing.Point(3, 2);
+            this.labelProdFour.Name = "labelProdFour";
+            this.labelProdFour.Size = new System.Drawing.Size(219, 23);
+            this.labelProdFour.TabIndex = 39;
+            this.labelProdFour.Text = "Produits Fournis (référence)";
+            // 
+            // textBoxVilleFour
+            // 
+            this.textBoxVilleFour.Location = new System.Drawing.Point(301, 286);
+            this.textBoxVilleFour.Name = "textBoxVilleFour";
+            this.textBoxVilleFour.Size = new System.Drawing.Size(585, 22);
+            this.textBoxVilleFour.TabIndex = 34;
+            // 
+            // labelVilleFour
+            // 
+            this.labelVilleFour.AutoSize = true;
+            this.labelVilleFour.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelVilleFour.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(22)))), ((int)(((byte)(40)))));
+            this.labelVilleFour.Location = new System.Drawing.Point(301, 260);
+            this.labelVilleFour.Name = "labelVilleFour";
+            this.labelVilleFour.Size = new System.Drawing.Size(42, 23);
+            this.labelVilleFour.TabIndex = 33;
+            this.labelVilleFour.Text = "Ville";
+            // 
+            // textBoxCPFour
+            // 
+            this.textBoxCPFour.Location = new System.Drawing.Point(12, 286);
+            this.textBoxCPFour.Name = "textBoxCPFour";
+            this.textBoxCPFour.Size = new System.Drawing.Size(227, 22);
+            this.textBoxCPFour.TabIndex = 32;
+            // 
+            // labelCPFour
+            // 
+            this.labelCPFour.AutoSize = true;
+            this.labelCPFour.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCPFour.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(22)))), ((int)(((byte)(40)))));
+            this.labelCPFour.Location = new System.Drawing.Point(12, 260);
+            this.labelCPFour.Name = "labelCPFour";
+            this.labelCPFour.Size = new System.Drawing.Size(100, 23);
+            this.labelCPFour.TabIndex = 31;
+            this.labelCPFour.Text = "Code Postal";
+            // 
+            // textBoxAdresseFour
+            // 
+            this.textBoxAdresseFour.Location = new System.Drawing.Point(301, 212);
+            this.textBoxAdresseFour.Name = "textBoxAdresseFour";
+            this.textBoxAdresseFour.Size = new System.Drawing.Size(585, 22);
+            this.textBoxAdresseFour.TabIndex = 30;
+            // 
+            // labelAdresseFour
+            // 
+            this.labelAdresseFour.AutoSize = true;
+            this.labelAdresseFour.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAdresseFour.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(22)))), ((int)(((byte)(40)))));
+            this.labelAdresseFour.Location = new System.Drawing.Point(301, 186);
+            this.labelAdresseFour.Name = "labelAdresseFour";
+            this.labelAdresseFour.Size = new System.Drawing.Size(69, 23);
+            this.labelAdresseFour.TabIndex = 29;
+            this.labelAdresseFour.Text = "Adresse";
+            // 
+            // textBoxNumTelFour
+            // 
+            this.textBoxNumTelFour.Location = new System.Drawing.Point(12, 212);
+            this.textBoxNumTelFour.Name = "textBoxNumTelFour";
+            this.textBoxNumTelFour.Size = new System.Drawing.Size(227, 22);
+            this.textBoxNumTelFour.TabIndex = 28;
+            // 
+            // labelNumTelFour
+            // 
+            this.labelNumTelFour.AutoSize = true;
+            this.labelNumTelFour.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNumTelFour.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(22)))), ((int)(((byte)(40)))));
+            this.labelNumTelFour.Location = new System.Drawing.Point(12, 186);
+            this.labelNumTelFour.Name = "labelNumTelFour";
+            this.labelNumTelFour.Size = new System.Drawing.Size(180, 23);
+            this.labelNumTelFour.TabIndex = 27;
+            this.labelNumTelFour.Text = "Numéro de Téléphone";
+            // 
+            // textBoxNumSIRET
+            // 
+            this.textBoxNumSIRET.Location = new System.Drawing.Point(441, 125);
+            this.textBoxNumSIRET.Name = "textBoxNumSIRET";
+            this.textBoxNumSIRET.Size = new System.Drawing.Size(445, 22);
+            this.textBoxNumSIRET.TabIndex = 26;
+            // 
+            // labelNumSIRET
+            // 
+            this.labelNumSIRET.AutoSize = true;
+            this.labelNumSIRET.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNumSIRET.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(22)))), ((int)(((byte)(40)))));
+            this.labelNumSIRET.Location = new System.Drawing.Point(441, 99);
+            this.labelNumSIRET.Name = "labelNumSIRET";
+            this.labelNumSIRET.Size = new System.Drawing.Size(120, 23);
+            this.labelNumSIRET.TabIndex = 25;
+            this.labelNumSIRET.Text = "Numéro SIRET";
             // 
             // btn_ajouter_fournisseur
             // 
@@ -118,135 +248,6 @@ namespace StiveLourd.Pages
             this.labelNomFour.Size = new System.Drawing.Size(137, 23);
             this.labelNomFour.TabIndex = 1;
             this.labelNomFour.Text = "Nom fournisseur";
-            // 
-            // textBoxNumSIRET
-            // 
-            this.textBoxNumSIRET.Location = new System.Drawing.Point(441, 125);
-            this.textBoxNumSIRET.Name = "textBoxNumSIRET";
-            this.textBoxNumSIRET.Size = new System.Drawing.Size(445, 22);
-            this.textBoxNumSIRET.TabIndex = 26;
-            // 
-            // labelNumSIRET
-            // 
-            this.labelNumSIRET.AutoSize = true;
-            this.labelNumSIRET.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNumSIRET.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(22)))), ((int)(((byte)(40)))));
-            this.labelNumSIRET.Location = new System.Drawing.Point(441, 99);
-            this.labelNumSIRET.Name = "labelNumSIRET";
-            this.labelNumSIRET.Size = new System.Drawing.Size(120, 23);
-            this.labelNumSIRET.TabIndex = 25;
-            this.labelNumSIRET.Text = "Numéro SIRET";
-            // 
-            // textBoxNumTelFour
-            // 
-            this.textBoxNumTelFour.Location = new System.Drawing.Point(12, 212);
-            this.textBoxNumTelFour.Name = "textBoxNumTelFour";
-            this.textBoxNumTelFour.Size = new System.Drawing.Size(227, 22);
-            this.textBoxNumTelFour.TabIndex = 28;
-            // 
-            // labelNumTelFour
-            // 
-            this.labelNumTelFour.AutoSize = true;
-            this.labelNumTelFour.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNumTelFour.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(22)))), ((int)(((byte)(40)))));
-            this.labelNumTelFour.Location = new System.Drawing.Point(12, 186);
-            this.labelNumTelFour.Name = "labelNumTelFour";
-            this.labelNumTelFour.Size = new System.Drawing.Size(180, 23);
-            this.labelNumTelFour.TabIndex = 27;
-            this.labelNumTelFour.Text = "Numéro de Téléphone";
-            // 
-            // textBoxAdresseFour
-            // 
-            this.textBoxAdresseFour.Location = new System.Drawing.Point(301, 212);
-            this.textBoxAdresseFour.Name = "textBoxAdresseFour";
-            this.textBoxAdresseFour.Size = new System.Drawing.Size(585, 22);
-            this.textBoxAdresseFour.TabIndex = 30;
-            // 
-            // labelAdresseFour
-            // 
-            this.labelAdresseFour.AutoSize = true;
-            this.labelAdresseFour.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAdresseFour.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(22)))), ((int)(((byte)(40)))));
-            this.labelAdresseFour.Location = new System.Drawing.Point(301, 186);
-            this.labelAdresseFour.Name = "labelAdresseFour";
-            this.labelAdresseFour.Size = new System.Drawing.Size(69, 23);
-            this.labelAdresseFour.TabIndex = 29;
-            this.labelAdresseFour.Text = "Adresse";
-            // 
-            // textBoxCPFour
-            // 
-            this.textBoxCPFour.Location = new System.Drawing.Point(12, 286);
-            this.textBoxCPFour.Name = "textBoxCPFour";
-            this.textBoxCPFour.Size = new System.Drawing.Size(227, 22);
-            this.textBoxCPFour.TabIndex = 32;
-            // 
-            // labelCPFour
-            // 
-            this.labelCPFour.AutoSize = true;
-            this.labelCPFour.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCPFour.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(22)))), ((int)(((byte)(40)))));
-            this.labelCPFour.Location = new System.Drawing.Point(12, 260);
-            this.labelCPFour.Name = "labelCPFour";
-            this.labelCPFour.Size = new System.Drawing.Size(100, 23);
-            this.labelCPFour.TabIndex = 31;
-            this.labelCPFour.Text = "Code Postal";
-            // 
-            // labelVilleFour
-            // 
-            this.labelVilleFour.AutoSize = true;
-            this.labelVilleFour.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelVilleFour.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(22)))), ((int)(((byte)(40)))));
-            this.labelVilleFour.Location = new System.Drawing.Point(301, 260);
-            this.labelVilleFour.Name = "labelVilleFour";
-            this.labelVilleFour.Size = new System.Drawing.Size(42, 23);
-            this.labelVilleFour.TabIndex = 33;
-            this.labelVilleFour.Text = "Ville";
-            // 
-            // textBoxVilleFour
-            // 
-            this.textBoxVilleFour.Location = new System.Drawing.Point(301, 286);
-            this.textBoxVilleFour.Name = "textBoxVilleFour";
-            this.textBoxVilleFour.Size = new System.Drawing.Size(585, 22);
-            this.textBoxVilleFour.TabIndex = 34;
-            // 
-            // panel_search_ref_prod
-            // 
-            this.panel_search_ref_prod.Controls.Add(this.btn_new_ref_prod);
-            this.panel_search_ref_prod.Controls.Add(this.textBoxProdFour);
-            this.panel_search_ref_prod.Controls.Add(this.labelProdFour);
-            this.panel_search_ref_prod.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel_search_ref_prod.Location = new System.Drawing.Point(16, 357);
-            this.panel_search_ref_prod.Name = "panel_search_ref_prod";
-            this.panel_search_ref_prod.Size = new System.Drawing.Size(233, 106);
-            this.panel_search_ref_prod.TabIndex = 39;
-            // 
-            // btn_new_ref_prod
-            // 
-            this.btn_new_ref_prod.AutoSize = true;
-            this.btn_new_ref_prod.Image = ((System.Drawing.Image)(resources.GetObject("btn_new_ref_prod.Image")));
-            this.btn_new_ref_prod.Location = new System.Drawing.Point(3, 67);
-            this.btn_new_ref_prod.Name = "btn_new_ref_prod";
-            this.btn_new_ref_prod.Size = new System.Drawing.Size(36, 36);
-            this.btn_new_ref_prod.TabIndex = 41;
-            this.btn_new_ref_prod.UseVisualStyleBackColor = false;
-            // 
-            // textBoxProdFour
-            // 
-            this.textBoxProdFour.Location = new System.Drawing.Point(3, 28);
-            this.textBoxProdFour.Name = "textBoxProdFour";
-            this.textBoxProdFour.Size = new System.Drawing.Size(227, 30);
-            this.textBoxProdFour.TabIndex = 40;
-            // 
-            // labelProdFour
-            // 
-            this.labelProdFour.AutoSize = true;
-            this.labelProdFour.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProdFour.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(22)))), ((int)(((byte)(40)))));
-            this.labelProdFour.Location = new System.Drawing.Point(3, 2);
-            this.labelProdFour.Name = "labelProdFour";
-            this.labelProdFour.Size = new System.Drawing.Size(219, 23);
-            this.labelProdFour.TabIndex = 39;
-            this.labelProdFour.Text = "Produits Fournis (référence)";
             // 
             // AddSuppliers
             // 

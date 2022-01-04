@@ -31,31 +31,23 @@ namespace StiveLourd.Pages
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Suppliers));
             this.navContainer = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.navContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // navContainer
             // 
+            this.navContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(252)))));
             this.navContainer.Controls.Add(this.button1);
             this.navContainer.Controls.Add(this.label1);
             this.navContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.navContainer.ForeColor = System.Drawing.SystemColors.ControlText;
             this.navContainer.Location = new System.Drawing.Point(0, 0);
             this.navContainer.Name = "navContainer";
             this.navContainer.Size = new System.Drawing.Size(990, 757);
             this.navContainer.TabIndex = 9;
             this.navContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.navContainer_Paint);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(441, 370);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 17);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "FOURNISSEURS";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // button1
             // 
@@ -71,6 +63,16 @@ namespace StiveLourd.Pages
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(441, 370);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(116, 17);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "FOURNISSEURS";
+            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // Suppliers
             // 

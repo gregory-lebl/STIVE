@@ -59,6 +59,7 @@ namespace StiveLourd.Pages
             // 
             // formProduits
             // 
+            this.formProduits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(252)))));
             this.formProduits.Controls.Add(this.button1);
             this.formProduits.Controls.Add(this.TitrePage);
             this.formProduits.Controls.Add(this.labelNomFournisseur);
@@ -100,6 +101,7 @@ namespace StiveLourd.Pages
             this.button1.TabIndex = 24;
             this.button1.Text = "Ajouter produit";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // TitrePage
             // 

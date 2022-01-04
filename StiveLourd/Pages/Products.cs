@@ -60,6 +60,9 @@ namespace StiveLourd.Pages
 
         }
 
-       
+        private void TitrePage_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
