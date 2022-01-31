@@ -78,7 +78,7 @@ namespace STIVE_API.Controllers
                 }
 
                 // IF CEPAGE DBSET NO EXIST CREATE ONE
-                var existingCepage = db.Cepage.Where(o => o.Name == CepageName).Where(o => o.Origin == CepageOrigin).FirstOrDefault();
+                var existingCepage = db.Cepage.Where(o => o.Name == CepageName && o.Origin == CepageOrigin).FirstOrDefault();
                 if (existingCepage == null)
                 {
                     var NewCepage = new Cepage(CepageName, CepageOrigin);

@@ -21,10 +21,12 @@ namespace STIVE_API.Data.Models.Orders
         public virtual Status Status { get; set; }
         // public List<ArticleRow> ArticleRow { get; set; }
 
-        public ClientOrder(string Reference, Guid CustomerId, Guid StatusId)
+        public ClientOrder(string Reference, double HTPrice, double TTCPrice, Guid CustomerId, Guid StatusId)
         {
             ClientOrderId = Guid.NewGuid();
             this.Reference = Reference;
+            this.HTPrice = HTPrice;
+            this.TTCPrice = TTCPrice;
             this.CustomerId = CustomerId;
             this.StatusId = StatusId;
             Date = DateTime.UtcNow;
