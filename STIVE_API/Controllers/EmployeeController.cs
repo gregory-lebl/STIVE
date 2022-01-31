@@ -32,7 +32,6 @@ namespace STIVE_API.Controllers
             {
                 var employee = db.Employee.Find(id);
                 return employee;
-
             }
         }
 
@@ -49,7 +48,7 @@ namespace STIVE_API.Controllers
                 try
                 {
                     db.SaveChanges();
-                    return Ok();
+                    return Ok("Le nouvel employé a bien été créé.");
                 }
                 catch (System.Exception)
                 {
@@ -77,9 +76,9 @@ namespace STIVE_API.Controllers
                         if (elem.Cp != null) employee.Cp = elem.Cp;
 
                         db.SaveChanges();
-                        return Ok();
+                        return Ok("Les informations ont bien été changées.");
                     }
-                    return NotFound();
+                    return NotFound("L'employé recherché n'a pas été trouvé");
                 }
             }
             catch (System.Exception)
@@ -101,10 +100,10 @@ namespace STIVE_API.Controllers
                     {
                         db.Employee.Remove(employee);
                         db.SaveChanges();
-                        return Ok();
+                        return Ok("L'employé a bien été supprimé");
 
                     }
-                    return NotFound();
+                    return NotFound("L'employé recherché n'a pas été trouvé");
 
                 }
                 catch (System.Exception)

@@ -42,7 +42,7 @@ namespace STIVE_API.Controllers
 
             var customer = new Customer(LastName, FirstName, Email, Password, PhoneNumber, Address, Cp, City);
 
-            if(!PasswordHelper.CheckPasswordVerify(Password, PasswordVerify)) return BadRequest();
+            if(!PasswordHelper.CheckPasswordVerify(Password, PasswordVerify)) return BadRequest("Les mot de passe sont différents. Veuillez recommencer.");
 
             using (var db = new StiveDbContext())
             {
@@ -50,11 +50,10 @@ namespace STIVE_API.Controllers
                 try
                 {
                     db.SaveChanges();
-                    return Ok();
+                    return Ok("Le client a bien été ajouté. Sa Référence est : " + customer.CustomerReference);
                 }
-                catch (System.Exception ex)
+                catch (System.Exception)
                 {
-                    Console.WriteLine(ex);
                     throw;
                 }
             }
@@ -80,9 +79,9 @@ namespace STIVE_API.Controllers
                         if (elem.Cp != null) customer.Cp = elem.Cp;
 
                         db.SaveChanges();
-                        return Ok();
+                        return Ok("Les informations ont bien été modifiées.");
                     }
-                    return NotFound();
+                    return NotFound("Aucune correspondance. Veuillez réessayer.");
                 }
             }
             catch (System.Exception)
@@ -104,9 +103,9 @@ namespace STIVE_API.Controllers
 
                         Console.WriteLine(elem);
 
-                        return Ok();
+                        return Ok("Le mot de passe a bien été changé.");
                     }
-                    return NotFound();
+                    return NotFound("Aucune correspondance. Veuillez Réessayer");
                 }
             }
             catch (System.Exception)
@@ -129,10 +128,10 @@ namespace STIVE_API.Controllers
                     {
                         db.Customers.Remove(customer);
                         db.SaveChanges();
-                        return Ok();
+                        return Ok("L'élement a bien été supprimé.");
 
                     }
-                    return NotFound();
+                    return NotFound("Aucune correpondance. Veuillez Réessayer.");
 
                 }
                 catch (System.Exception)

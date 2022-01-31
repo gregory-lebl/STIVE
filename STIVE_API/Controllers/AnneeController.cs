@@ -66,9 +66,9 @@ namespace STIVE_API.Controllers
                    {
                        db.Annee.Remove(annee);
                        db.SaveChanges();
-                       return Ok();
+                       return Ok("L'élement a bien été supprimé.");
                    }
-                    return Problem("L'élement recherché n'existe pas.");
+                   return BadRequest("L'élement recherché n'existe pas.");
                }
                catch (System.Exception)
                {

@@ -106,8 +106,8 @@ namespace STIVE_API.Data
             modelBuilder.Entity<Stock>();
             modelBuilder.Entity<ClientOrder>()
                 .HasData(
-                new ClientOrder("TEST123456", customer.First().Id, status.First().StatusId),
-                new ClientOrder("TEST234567", customer.Last().Id, status.First().StatusId)
+                new ClientOrder("TEST123456", 25, 25, customer.First().Id, status.First().StatusId),
+                new ClientOrder("TEST234567",20,20,  customer.Last().Id, status.First().StatusId)
                 );
             modelBuilder.Entity<PurchaseOrder>();
             modelBuilder.Entity<ArticleRow>();

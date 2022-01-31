@@ -51,5 +51,17 @@ namespace STIVE_API.Controllers
                 }
             }
         }
+
+        [HttpDelete("{id}")]
+        public ActionResult Delete(Guid id)
+        {
+            using (var db = new StiveDbContext())
+            {
+                var supplier = db.Supplier.Single(o => o.SupplierId == id);
+                db.Supplier.Remove(supplier);
+                return Ok("Le fournisseur à bien été supprimé");
+
+            }
+        }
     }
 }
