@@ -84,8 +84,7 @@ namespace STIVE_WEB.Controllers
             Annee annee = await responseAnnee.Content.ReadAsAsync<Annee>();
             Article.Annee = annee;
 
-            //Récupération de la capacité de l'article
-            // La route n'existe pas encore
+            //Récupération de la capacité de l'articlesdsd
 
             //Récupération Cepage de l'article
             var endpointCepage = BaseUrl + "/api/cepage/" + cepageId;
