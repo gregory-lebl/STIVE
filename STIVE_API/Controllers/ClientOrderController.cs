@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace STIVE_API.Controllers
 {
     [Route("api/clientOrder")]
@@ -74,11 +75,11 @@ namespace STIVE_API.Controllers
         }
 
         [HttpPost("new")]
-        public ActionResult Post(Guid customerId, double HTPrice, double TTCPrice, List<BasketOrder> Articles)
+        public async Task<ActionResult> PostAsync(Guid customerId, double HTPrice, double TTCPrice, List<BasketOrder> Articles)
         {
             if(Articles == null)
             {
-                return NotFound("Pas d'artciles dans le panier");
+                return NotFound("Pas d'articles dans le panier");
             }
             using (var db = new StiveDbContext())
             {
@@ -114,7 +115,20 @@ namespace STIVE_API.Controllers
                         try
                         {
                             var newRowArticle = new ArticleRow(article.ArticleId, order.ClientOrderId, article.Quantity);
+                            var articleDB = db.Article.Single(o => o.Id == article.ArticleId);
+                            if(articleDB.Stock.Limit < (articleDB.Stock.Quantity - article.Quantity))
+                            {
+                                // PASSER UNE COMMANDE AU FOURNISSEUR
+                                
+                            }
+
+                            var newStock = (articleDB.Stock.Quantity - article.Quantity);
+
+                            //CHANGER LE STOCK
+                            //
+
                             db.ArticleRow.Add(newRowArticle);
+
                             db.SaveChanges();
 
 
