@@ -66,55 +66,91 @@ namespace STIVE_API.Controllers
                 }
                 
                 // IF ANNEE DBSET NO EXIST CREATE ONE
-                var existingAnnee = db.Annee.Where(o => o.Number == Annee).FirstOrDefault();
-                if (existingAnnee == null)
+                try
                 {
-                    var NewAnnee = new Annee(Annee);
-                    db.Annee.Add(NewAnnee);
-                    IdAnnee = NewAnnee.AnneeId;
-                } else
+                    var existingAnnee = db.Annee.Where(o => o.Number == Annee).FirstOrDefault();
+                    if (existingAnnee == null)
+                    {
+                        var NewAnnee = new Annee(Annee);
+                        db.Annee.Add(NewAnnee);
+                        IdAnnee = NewAnnee.AnneeId;
+                    }
+                    else
+                    {
+                        IdAnnee = existingAnnee.AnneeId;
+                    }
+
+                } catch (System.Exception)
                 {
-                    IdAnnee = existingAnnee.AnneeId;
+                    throw new Exception("Une erreur s'est produite lors de la création de l'année.");
                 }
+                
 
                 // IF CEPAGE DBSET NO EXIST CREATE ONE
-                var existingCepage = db.Cepage.Where(o => o.Name == CepageName && o.Origin == CepageOrigin).FirstOrDefault();
-                if (existingCepage == null)
+                try
                 {
-                    var NewCepage = new Cepage(CepageName, CepageOrigin);
-                    db.Cepage.Add(NewCepage);
-                    IdCepage = NewCepage.CepageId;
+                    var existingCepage = db.Cepage.Where(o => o.Name == CepageName && o.Origin == CepageOrigin).FirstOrDefault();
+                    if (existingCepage == null)
+                    {
+                        var NewCepage = new Cepage(CepageName, CepageOrigin);
+                        db.Cepage.Add(NewCepage);
+                        IdCepage = NewCepage.CepageId;
+                    }
+                    else
+                    {
+                        IdCepage = existingCepage.CepageId;
+                    }
+
                 }
-                else
+                catch (System.Exception)
                 {
-                    IdCepage = existingCepage.CepageId;
+                    throw new Exception("Une erreur s'est produite lors de la création du cépage");
                 }
+                
 
                 // IF CAPACITY DBSET NO EXIST CREATE ONE
-                var existingCapacity = db.Capacity.Where(o => o.BottleCapacity == Capacity).FirstOrDefault();
-                if (existingCapacity == null)
+                try
                 {
-                    var NewCapacity = new Capacity(Capacity);
-                    db.Capacity.Add(NewCapacity);
-                    IdCapacity = NewCapacity.CapacityId;
+                    var existingCapacity = db.Capacity.Where(o => o.BottleCapacity == Capacity).FirstOrDefault();
+                    if (existingCapacity == null)
+                    {
+                        var NewCapacity = new Capacity(Capacity);
+                        db.Capacity.Add(NewCapacity);
+                        IdCapacity = NewCapacity.CapacityId;
+                    }
+                    else
+                    {
+                        IdCapacity = existingCapacity.CapacityId;
+                    }
+
                 }
-                else
+                catch (System.Exception)
                 {
-                    IdCapacity = existingCapacity.CapacityId;
+                    throw new Exception("Une erreur s'est produite lors de la création de la capacité.");
                 }
+                
 
                 // IF FAMILY DBSET NOT EXIST CREATE ONE
-                var existingFamily = db.Family.Where(o => o.Name == FamilyName).FirstOrDefault();
-                if (existingFamily == null)
+                try
                 {
-                    var NewFamily = new Family(FamilyName);
-                    db.Family.Add(NewFamily);
-                    IdFamily = NewFamily.FamilyId;
+                    var existingFamily = db.Family.Where(o => o.Name == FamilyName).FirstOrDefault();
+                    if (existingFamily == null)
+                    {
+                        var NewFamily = new Family(FamilyName);
+                        db.Family.Add(NewFamily);
+                        IdFamily = NewFamily.FamilyId;
+                    }
+                    else
+                    {
+                        IdFamily = existingFamily.FamilyId;
+                    }
+
                 }
-                else
+                catch (System.Exception)
                 {
-                    IdFamily = existingFamily.FamilyId;
+                    throw new Exception("Une erreur s'est produite lors de la création de la famille.");
                 }
+                
 
                 // CREATE STOCK REFERENCE 
 
@@ -122,6 +158,8 @@ namespace STIVE_API.Controllers
                 db.Stock.Add(NewStock);
                 IdStock = NewStock.StockId;
 
+
+                // INSERT NEW ARTICLE
                 try
                 {
                     Article NewArticle = new Article(Name, Ref, Description, UnitPrice, IdAnnee, IdCapacity, IdCepage, IdFamily, IdSupplier, IdStock);
