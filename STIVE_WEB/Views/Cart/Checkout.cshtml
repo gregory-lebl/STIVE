@@ -15,24 +15,23 @@ else
     <br />
     @foreach (var item in Model)
     {
-<div class="d-flex">
-    <img src="https://static.specsonline.com/wp-content/themes/Specs%20Theme/images/default_wine.png" alt="Image de la bouteille" style="max-height: 164px;" />
-    <div class="d-flex flex-column justify-content-center">
-        <strong>@item.Name</strong>
-        <span>Année : @item.Annee.Number</span>
-        <span>Contenance : @item.Capacity.BottleCapacity cl</span>
-        <strong style="color: #711628;">@item.UnitPrice.ToString("N2") €</strong>
-    </div>
-    <div class="align-self-center ml-5">
-        <input type="number" value="1" id="InputQuantityChange" />
-        <strong class="ml-2" style="color: #711628;">@item.UnitPrice.ToString("N2") €</strong>
-    </div>
-    <div class="ml-5">
-        <a asp-controller="Cart" asp-action="DeleteItemFromCheckout" asp-route-id="@item.Id">
-            <i class="fas fa-trash-alt fa-lg fa-2x" style="color: #711628;"></i>
-        </a>
-    </div>
-</div>
-
+        <div class="d-flex mb-5" style="border-bottom: 1px solid lightgray;">
+            <img src="https://static.specsonline.com/wp-content/themes/Specs%20Theme/images/default_wine.png" alt="Image de la bouteille" style="max-height: 164px;" />
+            <div class="d-flex flex-column justify-content-center">
+                <strong class="pb-2">@item.Name</strong>
+                <span class="pb-2">Année : @item.Annee.Number</span>
+                <span class="pb-2">Contenance : @item.Capacity.BottleCapacity cl</span>
+                <strong style="color: #711628;">@item.UnitPrice.ToString("N2") €</strong>
+            </div>
+            <div class="align-self-center ml-5">
+                <input type="number" value="1" id="InputQuantityChange" />
+                <strong class="ml-2" style="color: #711628;">@item.UnitPrice.ToString("N2") €</strong>
+            </div>
+            <div class="ml-5">
+                <a asp-controller="Cart" asp-action="DeleteItemFromCheckout" asp-route-id="@item.Id">
+                    <i class="fas fa-trash-alt fa-lg fa-2x" style="color: #711628;"></i>
+                </a>
+            </div>
+        </div>
     }
 }
