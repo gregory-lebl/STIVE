@@ -76,6 +76,10 @@ namespace STIVE_API.Controllers
         [HttpPost("new")]
         public ActionResult Post(Guid customerId, double HTPrice, double TTCPrice, List<BasketOrder> Articles)
         {
+            if(Articles == null)
+            {
+                return NotFound("Pas d'artciles dans le panier");
+            }
             using (var db = new StiveDbContext())
             {
                 try
@@ -134,7 +138,34 @@ namespace STIVE_API.Controllers
             
         }
 
-       
+        [HttpDelete("{id}")]
+        public ActionResult Delete(Guid id)
+        {
+            using (var db = new StiveDbContext())
+            {
+                try
+                {
+
+                    var order = db.ClientOrder.Single(o => o.ClientOrderId == id);
+                    if (order != null)
+                    {
+                        db.ClientOrder.Remove(order);
+                        db.SaveChanges();
+                        return Ok("L'élement à bien été supprimé.");
+
+                    }
+                    return NotFound("Aucune commande correspondante n'a été trouvé. Veuillez réessayer.");
+
+                }
+                catch (System.Exception)
+                {
+                    throw;
+                }
+            }
+        }
+
+
+
 
     }
 }
