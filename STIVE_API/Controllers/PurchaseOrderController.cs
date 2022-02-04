@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using STIVE_API.Data;
 using STIVE_API.Data.Models.Orders;
 using STIVE_API.Helpers;
@@ -29,7 +30,8 @@ namespace STIVE_API.Controllers
         {
             using (var db = new StiveDbContext())
             {
-                var order = db.PurchaseOrder.Single(o => o.PurshaseOrderId == id);
+                var query = db.Set<PurchaseOrder>().Include(o => o.SupplierId);
+                var order = query.Single(o => o.PurshaseOrderId == id);
                 return order;
             }
 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using STIVE_API.Data;
 using STIVE_API.Data.Models.Articles;
 using STIVE_API.Data.Models.Orders;
@@ -34,7 +35,8 @@ namespace STIVE_API.Controllers
 
                     foreach (ArticleRow article in articles)
                     {
-                        Article article1 = db.Article.Single(o => o.Id == article.ArticleId);
+                        var query = db.Set<Article>().Include(o => o.Cepage).Include(o => o.Supplier).Include(i => i.Family).Include(o => o.Annee).Include(o => o.Capacity);
+                        Article article1 = query.Single(o => o.Id == article.ArticleId);
                         ArticleRowReturn newArtcile = new ArticleRowReturn(article.ArticleId, article.ClientOrderId, article.Quantity, article1);
                         returnArticles.Add(newArtcile);
 
@@ -62,7 +64,8 @@ namespace STIVE_API.Controllers
 
                 foreach (ArticleRow article in articles)
                 {
-                    Article article1 = db.Article.Single(o => o.Id == article.ArticleId);
+                    var query = db.Set<Article>().Include(o => o.Cepage).Include(o => o.Supplier).Include(i => i.Family).Include(o => o.Annee).Include(o => o.Capacity);
+                    Article article1 = query.Single(o => o.Id == article.ArticleId);
                     ArticleRowReturn newArtcile = new ArticleRowReturn(article.ArticleId, article.ClientOrderId, article.Quantity, article1);
                     returnArticles.Add(newArtcile);
 
@@ -75,9 +78,9 @@ namespace STIVE_API.Controllers
         }
 
         [HttpPost("new")]
-        public async Task<ActionResult> PostAsync(Guid customerId, double HTPrice, double TTCPrice, List<BasketOrder> Articles)
+        public ActionResult Post(Guid customerId, double HTPrice, double TTCPrice, List<BasketOrder> Articles)
         {
-            if(Articles == null)
+            if (Articles == null)
             {
                 return NotFound("Pas d'articles dans le panier");
             }
@@ -96,7 +99,7 @@ namespace STIVE_API.Controllers
                     {
                         throw;
                     }
-                    var Reference  = GenerationHelper.NumberGeneration();
+                    var Reference = GenerationHelper.NumberGeneration();
                     var order = new ClientOrder(Reference, HTPrice, TTCPrice, customerId, status.StatusId);
                     try
                     {
@@ -115,24 +118,28 @@ namespace STIVE_API.Controllers
                         try
                         {
                             var newRowArticle = new ArticleRow(article.ArticleId, order.ClientOrderId, article.Quantity);
+
                             var articleDB = db.Article.Single(o => o.Id == article.ArticleId);
-                            if(articleDB.Stock.Limit < (articleDB.Stock.Quantity - article.Quantity))
+                            var articleDBStock = db.Stock.Single(o => o.StockId == articleDB.StockId);
+                            if (articleDBStock.Limit > (articleDBStock.Quantity - article.Quantity))
                             {
                                 // PASSER UNE COMMANDE AU FOURNISSEUR
-                                
+                                PurchaseOrder newpurchase = new PurchaseOrder(article.ArticleId, articleDB.Stock.Provision, articleDB.SupplierId);
+                                db.PurchaseOrder.Add(newpurchase);
                             }
-
                             var newStock = (articleDB.Stock.Quantity - article.Quantity);
 
                             //CHANGER LE STOCK
-                            //
-
+                            if (articleDB != null)
+                            {
+                                articleDB.Stock.Quantity = newStock;
+                            }
                             db.ArticleRow.Add(newRowArticle);
-
                             db.SaveChanges();
 
 
-                        } catch(System.Exception)
+                        }
+                        catch (System.Exception)
                         {
                             throw;
                         }
@@ -146,10 +153,10 @@ namespace STIVE_API.Controllers
                 }
 
 
-                
+
             }
 
-            
+
         }
 
         [HttpDelete("{id}")]
@@ -159,17 +166,14 @@ namespace STIVE_API.Controllers
             {
                 try
                 {
-
                     var order = db.ClientOrder.Single(o => o.ClientOrderId == id);
                     if (order != null)
                     {
                         db.ClientOrder.Remove(order);
                         db.SaveChanges();
                         return Ok("L'élement à bien été supprimé.");
-
                     }
                     return NotFound("Aucune commande correspondante n'a été trouvé. Veuillez réessayer.");
-
                 }
                 catch (System.Exception)
                 {
