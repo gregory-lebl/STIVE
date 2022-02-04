@@ -52,6 +52,26 @@ namespace STIVE_API.Controllers
             }
         }
 
+        [HttpPost("new2")]
+        public ActionResult Post(Supplier request)
+        {
+
+            var supplier = new Supplier(request.Name, request.Address, request.Cp, request.City, request.Siret, request.PhoneNumber);
+            using (var db = new StiveDbContext())
+            {
+                db.Supplier.Add(supplier);
+                try
+                {
+                    db.SaveChanges();
+                    return Ok();
+                }
+                catch (System.Exception)
+                {
+                    throw;
+                }
+            }
+        }
+
         [HttpDelete("{id}")]
         public ActionResult Delete(Guid id)
         {
