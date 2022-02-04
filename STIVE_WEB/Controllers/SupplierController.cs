@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using STIVE_WEB.Models.Orders;
 using System.Net.Http;
 using System.Net.Http.Json;
@@ -10,18 +9,6 @@ namespace STIVE_WEB.Controllers
     public class SupplierController : Controller
     {
         private string BaseUrl = "https://localhost:44395";
-
-        // GET: SupplierController
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        // GET: SupplierController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
 
         // GET: SupplierController/Create
         public ActionResult Create()
@@ -43,46 +30,5 @@ namespace STIVE_WEB.Controllers
             return View();
         }
 
-            // GET: SupplierController/Edit/5
-            public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: SupplierController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: SupplierController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: SupplierController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }
