@@ -66,49 +66,6 @@ namespace STIVE_API.Controllers
                 }
                 
                 // IF ANNEE DBSET NO EXIST CREATE ONE
-                var existingAnnee = db.Annee.Where(o => o.Number == Annee).FirstOrDefault();
-                if (existingAnnee == null)
-                {
-                    var NewAnnee = new Annee(Annee);
-                    db.Annee.Add(NewAnnee);
-                    IdAnnee = NewAnnee.AnneeId;
-                } else
-                {
-                    IdAnnee = existingAnnee.AnneeId;
-                }
-
-                var query = db.Set<Article>().Include(o => o.Cepage).Include(o => o.Supplier).Include(i => i.Family).Include(o => o.Annee).Include(o => o.Capacity);
-
-                var singleArticle = query.Single(o => o.Id == id);
-                return singleArticle;
-            }
-
-        }
-
-        [HttpPost("{new}")]
-        public ActionResult NewArticle(string Name, string Description, double UnitPrice, int Annee, string CepageName, string CepageOrigin, double Capacity, string FamilyName, string SupplierName, int Quantity, int Limit, int Provision)
-        {
-            using( var db = new StiveDbContext())
-            {
-                var Ref = GenerationHelper.NumberGeneration();
-                Guid IdAnnee ;
-                Guid IdCepage;
-                Guid IdCapacity;
-                Guid IdFamily;
-                Guid IdSupplier;
-                Guid IdStock;
-
-                // SUPPLIER EXIST ? 
-                var existingSupplier = db.Supplier.Where(o => o.Name == SupplierName).FirstOrDefault();
-                if(existingSupplier == null)
-                {
-                    return BadRequest();
-                } else
-                {
-                    IdSupplier = existingSupplier.SupplierId;
-                }
-                
-                // IF ANNEE DBSET NO EXIST CREATE ONE
                 try
                 {
                     var existingAnnee = db.Annee.Where(o => o.Number == Annee).FirstOrDefault();
