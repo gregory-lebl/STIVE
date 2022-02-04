@@ -55,6 +55,10 @@ namespace STIVE_API.Controllers
 
             using (var db = new StiveDbContext())
             {
+                try
+                {
+
+                
                 var clientOrder = db.ClientOrder.Single(o => o.ClientOrderId == id);
                 var client = db.Customers.Single(o => o.Id == clientOrder.CustomerId);
                 var status = db.Status.Single(o => o.StatusId == clientOrder.StatusId);
@@ -73,6 +77,11 @@ namespace STIVE_API.Controllers
 
                 ClientOrderReturn res = new ClientOrderReturn(clientOrder.ClientOrderId, clientOrder.Reference, clientOrder.HTPrice, clientOrder.TTCPrice, clientOrder.Date, client.CustomerReference, status.Name, returnArticles);
                 return res;
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
             }
 
         }
@@ -151,12 +160,7 @@ namespace STIVE_API.Controllers
                 {
                     throw;
                 }
-
-
-
             }
-
-
         }
 
         [HttpDelete("{id}")]
@@ -169,6 +173,24 @@ namespace STIVE_API.Controllers
                     var order = db.ClientOrder.Single(o => o.ClientOrderId == id);
                     if (order != null)
                     {
+                        // GET ALL ARTICLE ROW FK
+                        var articleRow = db.ArticleRow.Where(o => o.ClientOrderId == order.ClientOrderId).ToList();
+                        /// RESTOCK ARTICLES 
+                        
+                        foreach (ArticleRow row in articleRow)
+                        {
+                            
+                            var article = db.Article.Single(o => o.Id == row.ArticleId);
+                            var articleRowStock = db.Stock.Single(o => o.StockId == article.StockId);
+                             articleRowStock.Quantity = (articleRowStock.Quantity + row.Quantity);
+                             db.SaveChanges();
+
+
+                            db.ArticleRow.Remove(row);
+                            db.SaveChanges();
+                        }
+                        
+
                         db.ClientOrder.Remove(order);
                         db.SaveChanges();
                         return Ok("L'élement à bien été supprimé.");
