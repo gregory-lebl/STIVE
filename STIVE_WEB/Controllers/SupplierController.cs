@@ -38,24 +38,28 @@ namespace STIVE_WEB.Controllers
         // POST: SupplierController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public Boolean Create(Supplier supplier)
+        public async Task<bool> CreateAsync(Supplier supplier)
         {
             Supplier newSupplier = supplier;
             string jsonSupplier = JsonSerializer.Serialize(newSupplier);
-            string endpointApi = BaseUrl + "/api/supplier/new";
+            string endpointApi = BaseUrl + "/api/supplier/new2";
+            /*
             endpointApi += "&Name=" + supplier.Name;
-            endpointApi += "&Address=" + supplier.Adress;
+            endpointApi += "&Address=" + supplier.Address;
             endpointApi += "&Cp=" + supplier.Cp;
             endpointApi += "&City=" + supplier.City;
             endpointApi += "&Siret=" + supplier.Siret;
             endpointApi += "&PhoneNumber=" + supplier.PhoneNumber;
-            
+            */
 
-            endpointApi = endpointApi.Replace(" ", "%20");
+            //endpointApi = endpointApi.Replace(" ", "%20");
             var client = new HttpClient();
 
-            //client.PostAsJsonAsync(endpointApi, new StringContent(jsonSupplier, Encoding.UTF8, "application/json"));
-            var response = client.GetAsync(endpointApi);
+            //await client.PostAsJsonAsync(endpointApi, jsonSupplier);
+
+            //HttpResponseMessage response = await client.PostAsync();
+
+            //var toto = response.StatusCode;
 
             return true;
         }
