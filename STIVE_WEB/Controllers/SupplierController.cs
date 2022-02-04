@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -38,30 +39,15 @@ namespace STIVE_WEB.Controllers
         // POST: SupplierController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<bool> CreateAsync(Supplier supplier)
+        public async Task<ActionResult> CreateAsync(Supplier supplier)
         {
             Supplier newSupplier = supplier;
-            string jsonSupplier = JsonSerializer.Serialize(newSupplier);
             string endpointApi = BaseUrl + "/api/supplier/new2";
-            /*
-            endpointApi += "&Name=" + supplier.Name;
-            endpointApi += "&Address=" + supplier.Address;
-            endpointApi += "&Cp=" + supplier.Cp;
-            endpointApi += "&City=" + supplier.City;
-            endpointApi += "&Siret=" + supplier.Siret;
-            endpointApi += "&PhoneNumber=" + supplier.PhoneNumber;
-            */
-
-            //endpointApi = endpointApi.Replace(" ", "%20");
             var client = new HttpClient();
 
-            //await client.PostAsJsonAsync(endpointApi, jsonSupplier);
+            await client.PostAsJsonAsync(endpointApi, newSupplier);
 
-            //HttpResponseMessage response = await client.PostAsync();
-
-            //var toto = response.StatusCode;
-
-            return true;
+            return View();
         }
 
             // GET: SupplierController/Edit/5
