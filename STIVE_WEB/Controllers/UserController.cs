@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using STIVE_WEB.Models.Users;
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -35,56 +36,55 @@ namespace STIVE_WEB.Controllers
             }
             else
             {
-                string endpointApi = BaseUrl + "/api/customer/new2";
-                var client = new HttpClient();
 
-                await client.PostAsJsonAsync(endpointApi, newCustomer);
+                if (await CheckIfCustomerExistAsync(customer.Email) == false)
+                {
+                    string endpointApi = BaseUrl + "/api/customer/new2";
+                    var client = new HttpClient();
 
-                ViewData["successMessage"] = "Votre compte a bien été créé, vous pouvez vous connecter";
+                    await client.PostAsJsonAsync(endpointApi, newCustomer);
+
+                    ViewData["successMessage"] = "Votre compte a bien été créé, vous pouvez vous connecter";
+                }
+                else
+                {
+                    ViewData["errorMessage"] = "Un utilisateur avec cette adresse email existe déjà.";
+                }
+
                 return View("RegisterForm");
             }
         }
 
-
-        // GET: UserController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: UserController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult> GetUserAsync(string email, string password)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
 
-        // GET: UserController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
+            bool customerAlreadyExist = await CheckIfCustomerExistAsync(email);
 
-        // POST: UserController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+
+            return View("Home/index.cshtml");
+        }
+        /// <summary>
+        /// Vérifie si un utilisateur existe déjà en base de données
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public async Task<bool> CheckIfCustomerExistAsync(string email)
         {
-            try
+            string endpoint = BaseUrl + "/api/customer";
+
+            HttpResponseMessage response = await client.GetAsync(endpoint);
+
+            List<Customer> customers = await response.Content.ReadAsAsync<List<Customer>>();
+
+            if (customers.Find(o => o.Email == email) != null)
             {
-                return RedirectToAction(nameof(Index));
+                return true;
             }
-            catch
+            else
             {
-                return View();
+                return false;
             }
         }
     }
