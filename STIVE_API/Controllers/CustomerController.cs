@@ -59,6 +59,29 @@ namespace STIVE_API.Controllers
             }
         }
 
+        [HttpPost("new2")]
+        public ActionResult Post(Customer request)
+        {
+
+            var customer = new Customer(request.LastName, request.FirstName, request.Email, request.Password, request.PhoneNumber, request.Address, request.Cp, request.City);
+
+            //if (!PasswordHelper.CheckPasswordVerify(request.Password, request.PasswordVerify)) return BadRequest("Les mot de passe sont différents. Veuillez recommencer.");
+
+            using (var db = new StiveDbContext())
+            {
+                db.Customers.Add(customer);
+                try
+                {
+                    db.SaveChanges();
+                    return Ok("Le client a bien été ajouté. Sa Référence est : " + customer.CustomerReference);
+                }
+                catch (System.Exception)
+                {
+                    throw;
+                }
+            }
+        }
+
         [HttpPut("{id}")]
         public ActionResult UpdateAccountElements(Customer elem)
         {
