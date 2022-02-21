@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using STIVE_WEB.Models.Users;
-using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -64,7 +63,7 @@ namespace STIVE_WEB.Controllers
 
 
             return View("Home/index.cshtml");
-        }
+        } 
         /// <summary>
         /// Vérifie si un utilisateur existe déjà en base de données
         /// </summary>
