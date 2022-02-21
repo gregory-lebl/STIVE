@@ -1,0 +1,61 @@
+﻿@{
+    ViewData["Title"] = "Créer un compte";
+    var errorMessage = ViewData["errorMessage"];
+    var successMessage = ViewData["successMessage"];
+    @model STIVE_WEB.Models.Users.Customer;
+}
+
+<partial name="/Views/Shared/_Header.cshtml" />
+<div class="col-md-6 container mt-2">
+    <form asp-controller="User" asp-action="CreateNewCustomer" method="POST">
+        <div class="form-group">
+            <div>
+                <label asp-for="LastName">Nom de famille</label>
+                <input type="text" class="form-control" asp-for="LastName" placeholder="Nom" required value="testLeblond">
+            </div>
+            <div>
+                <label asp-for="FirstName">Prénom</label>
+                <input type="text" class="form-control" asp-for="FirstName" placeholder="Prénom" required value="testGregory">
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Address">Adresse</label>
+            <input type="text" class="form-control" asp-for="Address" placeholder="45 rue aux chats" value="123 rue aux ours">
+            <label asp-for="City">Ville</label>
+            <input type="text" class="form-control" asp-for="City" placeholder="Rouen" value="Rouen">
+            <label asp-for="Cp">Code Postal</label>
+            <input type="text" class="form-control" asp-for="Cp" placeholder="76000" value="76000">
+        </div>
+        <div class="form-group">
+            <label asp-for="PhoneNumber">Numéro de téléphone</label>
+            <input type="text" class="form-control" asp-for="PhoneNumber" placeholder="02 35 45 65 45" value="02 35 45 65 45">
+            <label asp-for="Email">Email</label>
+            <input type="email" class="form-control" asp-for="Email" placeholder="Pierre@email.fr" value="greg@greg.fr">
+            <label asp-for="Password">Mot de passe</label>
+            <input type="password" class="form-control" asp-for="Password" value="azerty">
+            <label asp-for="PasswordVerify">Vérification du mot de passe</label>
+            <input type="password" class="form-control" asp-for="PasswordVerify" value="azerty">
+        </div>
+        <div class="d-flex justify-content-between align-items-center">
+            <button type="submit" class="btn btn-primary" style="background-color: #7b0405; color: white;">Créer mon compte</button>
+        </div>
+        @if (errorMessage != null)
+        {
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                @errorMessage.ToString()
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        }
+        @if (successMessage != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                @successMessage.ToString()
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        }
+    </form>
+</div>
