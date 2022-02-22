@@ -5,7 +5,7 @@
 }
 
 <partial name="/Views/Shared/_Header.cshtml" />
-<div class="text-left container">
+<section id="section-articles">
     <h1>Notre sélection de vins</h1>
     <div class="row">
         @foreach (var item in Model)
@@ -26,14 +26,5 @@
                 </div>
             </div>
         }
-        <br />
-        @if (string.IsNullOrEmpty(@Context.Session.GetString("Cart")))
-        {
-            <h2>Session vide</h2>
-        }
-        else
-        {
-            <h2>Contenu de la session : @Context.Session.GetString("Cart")</h2>
-        }
     </div>
-</div>
+</section>

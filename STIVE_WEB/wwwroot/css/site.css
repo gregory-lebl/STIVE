@@ -1,71 +1,123 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
+﻿/* Responsive - inférieur à 576px */
+@media screen and (max-width: 576px){
+    #landing .left-side { 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #landing .right-side img {
+        max-width: 90vw;
+        margin: 0 auto;
+        display: block;
+        margin-top: 10px;
+    }
+    #login-form {
+        max-width: 95vw;
+        margin: 0 auto;
+    }
+    #section-checkout .checkout-list-item {
+        max-width: 95vw;
+        margin: auto;
+    }
+    #section-checkout .checkout-item {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        border-bottom: 2px solid #7b0405;
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+    }
+    #section-checkout .checkout-item-img {
+        height: 300px;
+        margin: auto;
+    }
+    #section-checkout .checkout-item-product-info {
+        display: flex;
+        flex-direction: column;
+    }
+    #section-checkout .checkout-item-product-quantity {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+    #section-checkout .checkout-item-product-quantity-input {
+        width: 100px;
+    }
+    #section-checkout .checkout-item-product-quantity-price {
+        color: #7b0405;
+    }
+    #section-checkout .checkout-item-product-delete {
+        position: absolute;
+        right: 10px;
+    }
+    #section-checkout .checkout-price {
+        height: 300px;
+        background-color: antiquewhite;
+        width: 80vw;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 8px;
+        padding-top: 30px;
+    }
+    #section-checkout .checkout-price-pay {
+        background-color: #7b0405;
+        color: white;
+        margin-top: 30px;
+    }
+}
+/* Responsive - supérieur ou égale à 576px */
+@media screen and (min-width: 576px) {
+    #landing .left-side {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    #landing .right-side img {
+        max-width: 90vw;
+        margin: 0 auto;
+        display: block;
+        margin-top: 10px;
+    }
 }
+/* Responsive - supérieur ou égale à 768px */
+@media screen and (min-width: 768px) {
+    #landing .left-side {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
+    #landing .right-side img {
+        max-width: 90vw;
+        margin: 0 auto;
+        display: block;
+        margin-top: 10px;
+    }
 }
-
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+/* Responsive - supérieur ou égale à 992px */
+@media screen and (min-width: 992px) {
+    #landing:nth-child(2) img {
+        width: 700px;
+    }
 }
-
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+/* Responsive - supérieur ou égale à 1200px */
+@media screen and (min-width: 1200px) {
+    #landing {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    #landing .left-side {
+        align-items: flex-start;
+    }
+    #landing:nth-child(2) img {
+        width: 600px;
+    }
+    #login-form {
+        max-width: 50vw;
+        margin: 0 auto;
+    }
 }
