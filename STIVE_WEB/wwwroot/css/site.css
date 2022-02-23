@@ -81,6 +81,66 @@
         display: block;
         margin-top: 10px;
     }
+    #section-checkout .checkout-list-item {
+        max-width: 95vw;
+        margin: auto;
+    }
+
+    #section-checkout .checkout-item {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        border-bottom: 2px solid #7b0405;
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+    }
+
+    #section-checkout .checkout-item-img {
+        height: 300px;
+        margin: auto;
+    }
+
+    #section-checkout .checkout-item-product-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #section-checkout .checkout-item-product-quantity {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    #section-checkout .checkout-item-product-quantity-input {
+        width: 100px;
+    }
+
+    #section-checkout .checkout-item-product-quantity-price {
+        color: #7b0405;
+    }
+
+    #section-checkout .checkout-item-product-delete {
+        position: absolute;
+        right: 10px;
+    }
+
+    #section-checkout .checkout-price {
+        height: 300px;
+        background-color: antiquewhite;
+        width: 80vw;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 8px;
+        padding-top: 30px;
+    }
+
+    #section-checkout .checkout-price-pay {
+        background-color: #7b0405;
+        color: white;
+        margin-top: 30px;
+    }
 }
 /* Responsive - supérieur ou égale à 768px */
 @media screen and (min-width: 768px) {
@@ -119,5 +179,33 @@
     #login-form {
         max-width: 50vw;
         margin: 0 auto;
+    }
+    #section-checkout {
+        margin: 0 30px;
+    }
+    #section-checkout .section-checkout-container {
+        display: flex;
+    }
+    #section-checkout .checkout-list-item {
+        margin: unset;
+        width: 70%;
+    }
+    #section-checkout .checkout-item {
+        flex-direction: row;
+        align-items: center;
+    }
+    #section-checkout .checkout-item-img{
+        width: 230px;
+        margin: unset;
+    }
+    #section-checkout .checkout-item .checkout-item-product-info {
+        margin-right: 50px;
+    }
+    #section-checkout .checkout-item-product-quantity-input {
+        margin-right: 50px;
+    }
+    #section-checkout .checkout-price {
+        margin: 0 auto;
+        width: 20%;
     }
 }
