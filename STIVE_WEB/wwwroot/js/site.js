@@ -3,14 +3,12 @@
 
 // Write your JavaScript code.
 
-
+//Récupère tous les produits et les quantités du panier pour 
 function getTotalPrice() {
     let allCheckoutItems = document.querySelectorAll(".checkout-item .checkout-item-product-quantity-price-value")
-    let arrayPrices = []
+    let totalPrice = 0;
 
-    allCheckoutItems.forEach(price => arrayPrices.push(price.textContent))
-
-    let totalPrice = arrayPrices.reduce((partialSum, a) => partialSum + a, 0);
+    allCheckoutItems.forEach(item => totalPrice += parseFloat(item.innerHTML).toFixed(2))
 
     console.log(totalPrice)
 }
