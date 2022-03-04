@@ -31,9 +31,9 @@ namespace StiveLourd
             NavigateTo("CONNECT");
         }
 
-     
 
-        public void NavigateTo(string page)
+
+        public void NavigateTo(string page, Object arg1 = null)
         {
             // On crée la nouvelle page
             Form frm;
@@ -144,7 +144,7 @@ namespace StiveLourd
                         btn_active_fournisseurs.Visible=false;
                         btn_active_commandes.Visible=false;
                         btn_active_clients.Visible=false;
-                    frm= new DetailsProduct();
+                    frm= new DetailsProduct((Article)arg1);
                     break;
                 case "DETAILS_SUPPLIERS":
                     // BTN Active

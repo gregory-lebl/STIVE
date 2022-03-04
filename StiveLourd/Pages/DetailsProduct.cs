@@ -12,7 +12,8 @@ namespace StiveLourd.Pages
 {
     public partial class DetailsProduct : Form
     {
-        public DetailsProduct()
+        
+        public DetailsProduct(Article test)
         {
             InitializeComponent();
         }

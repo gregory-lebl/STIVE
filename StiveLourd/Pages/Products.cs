@@ -19,7 +19,7 @@ namespace StiveLourd.Pages
         private DataSet ProductsDataSet = new DataSet();
         private BindingSource bindingTest = new BindingSource();
 
-        public Article article = new Article();
+        Article[] articles;
         public Products(Main main)
         {
             InitializeComponent();
@@ -29,12 +29,12 @@ namespace StiveLourd.Pages
 
             data.ContinueWith(delegate { BindData(data.Result); });
         }
-        
+
         void BindData2(string data)
         {
             //Parser les données en objet ?
 
-            
+
             // Placer ces données dans le tableau
 
             // Automatically generate the DataGridView columns.
@@ -67,7 +67,7 @@ namespace StiveLourd.Pages
                 table.Rows.Add("Book A", "10.01.2018");//Remplir le datagridview
             }
 
-                
+
             //table.Rows.Add("Book B", "10.01.2018");
             //table.Rows.Add("Book C", "10.01.2018");
             //table.Rows.Add("Book D", "10.01.2018");
@@ -106,8 +106,8 @@ namespace StiveLourd.Pages
         }*/
 
         //USELESS
-        private void button1_Click(object sender, EventArgs e){ _main.NavigateTo("DETAILS_PRODUCT");}
-    //END USELESS
+        private void button1_Click(object sender, EventArgs e) { _main.NavigateTo("DETAILS_PRODUCT"); }
+        //END USELESS
 
         private void navContainer_Paint(object sender, PaintEventArgs e)
         {
@@ -117,7 +117,7 @@ namespace StiveLourd.Pages
         {
 
         }
-     
+
         //NAvigate to add product page
         private void button2_Click(object sender, EventArgs e)
         {
@@ -127,11 +127,7 @@ namespace StiveLourd.Pages
         private void Products_Load(object sender, EventArgs e)
         {
         }
-        //Navigate to product detail page
-        private void articleDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            _main.NavigateTo("DETAILS_PRODUCT");
-        }
+
 
         private void fillByToolStripButton_Click(object sender, EventArgs e)
         {
@@ -171,7 +167,7 @@ namespace StiveLourd.Pages
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
         }
-        private void songsDataGridView_CellFormatting(object sender,System.Windows.Forms.DataGridViewCellFormattingEventArgs e)
+        private void songsDataGridView_CellFormatting(object sender, System.Windows.Forms.DataGridViewCellFormattingEventArgs e)
         {
             if (e != null)
             {
@@ -193,10 +189,10 @@ namespace StiveLourd.Pages
                 }*/
             }
         }
-      
 
-        
-   
+
+
+
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -210,10 +206,10 @@ namespace StiveLourd.Pages
 
         public async void BindData(string data)
         {
-            
-            Article[] articles = JsonConvert.DeserializeObject<Article[]>(data);
 
-            
+            articles = JsonConvert.DeserializeObject<Article[]>(data);
+
+
 
             DataTable table = new DataTable();
             table.Columns.Add("Référence", typeof(string));
@@ -230,6 +226,7 @@ namespace StiveLourd.Pages
             }
             articleDataGridView.Invoke((MethodInvoker)delegate
             {
+
                 articleDataGridView.AutoGenerateColumns = true;
                 articleDataGridView.DataSource = null;
                 articleDataGridView.DataSource = table;
@@ -250,6 +247,21 @@ namespace StiveLourd.Pages
             return data;
         }
 
+        private void articleDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
 
+            if (e.RowIndex != -1)
+            {
+                if(articles != null)
+                {
+                    if(articles.Length > e.RowIndex)
+                    {
+                        _main.NavigateTo("DETAILS_PRODUCT", articles[e.RowIndex]);
+                    }
+                }
+                //MessageBox.Show(articleDataGridView.CurrentCell.Value.ToString());
+                
+            }
+        }
     }
 }

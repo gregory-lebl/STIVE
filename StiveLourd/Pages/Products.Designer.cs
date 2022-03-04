@@ -71,7 +71,6 @@ namespace StiveLourd.Pages
             this.clientOrderTableAdapter1 = new StiveLourd.StiveDBDataSetTableAdapters.ClientOrderTableAdapter();
             this.familyTableAdapter = new StiveLourd.StiveDBDataSetTableAdapters.FamilyTableAdapter();
             this.supplierTableAdapter = new StiveLourd.StiveDBDataSetTableAdapters.SupplierTableAdapter();
-            this.ShowProduct = new System.Windows.Forms.DataGridViewButtonColumn();
             this.navContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.familyBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stiveDBDataSet)).BeginInit();
@@ -213,8 +212,6 @@ namespace StiveLourd.Pages
             this.articleDataGridView.AllowUserToDeleteRows = false;
             this.articleDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(195)))), ((int)(((byte)(198)))));
             this.articleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.articleDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ShowProduct});
             this.articleDataGridView.Location = new System.Drawing.Point(23, 384);
             this.articleDataGridView.Name = "articleDataGridView";
             this.articleDataGridView.ReadOnly = true;
@@ -223,7 +220,7 @@ namespace StiveLourd.Pages
             this.articleDataGridView.RowTemplate.Height = 24;
             this.articleDataGridView.Size = new System.Drawing.Size(908, 311);
             this.articleDataGridView.TabIndex = 38;
-            this.articleDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.articleDataGridView_CellContentClick);
+            this.articleDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.articleDataGridView_CellClick);
             // 
             // button1
             // 
@@ -435,15 +432,6 @@ namespace StiveLourd.Pages
             // 
             this.supplierTableAdapter.ClearBeforeFill = true;
             // 
-            // ShowProduct
-            // 
-            this.ShowProduct.HeaderText = "";
-            this.ShowProduct.MinimumWidth = 6;
-            this.ShowProduct.Name = "ShowProduct";
-            this.ShowProduct.ReadOnly = true;
-            this.ShowProduct.Text = "Voir le produit";
-            this.ShowProduct.Width = 125;
-            // 
             // Products
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -518,6 +506,5 @@ namespace StiveLourd.Pages
         private System.Windows.Forms.BindingSource cepageBindingSource2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.BindingSource supplierBindingSource1;
-        private System.Windows.Forms.DataGridViewButtonColumn ShowProduct;
     }
 }
