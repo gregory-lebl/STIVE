@@ -1,16 +1,14 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
-
-//Récupère tous les produits et les quantités du panier pour 
+﻿//Récupère tous les produits et les quantités du panier pour 
 function getTotalPrice() {
     let allCheckoutItems = document.querySelectorAll(".checkout-item .checkout-item-product-quantity-price-value")
     let totalPrice = 0;
 
-    allCheckoutItems.forEach(item => totalPrice += parseFloat(item.innerHTML).toFixed(2))
+    allCheckoutItems.forEach(
+        item => totalPrice += parseFloat(item.innerHTML.replace(",", "."))
+    )
 
-    console.log(totalPrice)
+    document.querySelector(".checkout-price .checkout-price-total-product").innerHTML = "Produits: " + totalPrice.toFixed(2) + " €"
+    document.querySelector(".checkout-price .checkout-price-total").innerHTML = "Total: " + totalPrice.toFixed(2) + " €"
 }
 
 //Change le prix d'une commande en fonction de la quantitée commandée
