@@ -71,10 +71,9 @@ namespace StiveLourd.Pages
             this.formFournisseur.Controls.Add(this.TitrePage);
             this.formFournisseur.Controls.Add(this.textBoxNomFour);
             this.formFournisseur.Controls.Add(this.labelNomFour);
-            this.formFournisseur.Dock = System.Windows.Forms.DockStyle.Fill;
             this.formFournisseur.Location = new System.Drawing.Point(0, 0);
             this.formFournisseur.Name = "formFournisseur";
-            this.formFournisseur.Size = new System.Drawing.Size(1031, 703);
+            this.formFournisseur.Size = new System.Drawing.Size(954, 707);
             this.formFournisseur.TabIndex = 3;
             // 
             // panel_search_ref_prod
@@ -224,7 +223,7 @@ namespace StiveLourd.Pages
             this.TitrePage.AutoSize = true;
             this.TitrePage.Font = new System.Drawing.Font("Nirmala UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TitrePage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(22)))), ((int)(((byte)(40)))));
-            this.TitrePage.Location = new System.Drawing.Point(240, 23);
+            this.TitrePage.Location = new System.Drawing.Point(202, 23);
             this.TitrePage.Name = "TitrePage";
             this.TitrePage.Size = new System.Drawing.Size(534, 45);
             this.TitrePage.TabIndex = 23;
@@ -253,7 +252,7 @@ namespace StiveLourd.Pages
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1031, 703);
+            this.ClientSize = new System.Drawing.Size(954, 707);
             this.Controls.Add(this.formFournisseur);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddSuppliers";

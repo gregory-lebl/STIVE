@@ -44,11 +44,11 @@ namespace StiveLourd.Pages
             // 
             this.navContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(252)))));
             this.navContainer.Controls.Add(this.Connexion);
-            this.navContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navContainer.Location = new System.Drawing.Point(0, 0);
             this.navContainer.Name = "navContainer";
-            this.navContainer.Size = new System.Drawing.Size(1031, 703);
+            this.navContainer.Size = new System.Drawing.Size(954, 707);
             this.navContainer.TabIndex = 0;
+            this.navContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.navContainer_Paint);
             // 
             // Connexion
             // 
@@ -58,7 +58,7 @@ namespace StiveLourd.Pages
             this.Connexion.Controls.Add(this.textBoxPassword);
             this.Connexion.Controls.Add(this.labelPassword);
             this.Connexion.Controls.Add(this.btn_connexion);
-            this.Connexion.Location = new System.Drawing.Point(324, 234);
+            this.Connexion.Location = new System.Drawing.Point(286, 236);
             this.Connexion.Name = "Connexion";
             this.Connexion.Size = new System.Drawing.Size(396, 213);
             this.Connexion.TabIndex = 7;
@@ -119,7 +119,7 @@ namespace StiveLourd.Pages
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1031, 703);
+            this.ClientSize = new System.Drawing.Size(954, 707);
             this.Controls.Add(this.navContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Connect";

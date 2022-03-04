@@ -29,25 +29,28 @@ namespace StiveLourd.Pages
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.TitrePage = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // TitrePage
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(344, 217);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(150, 17);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "FICHE FOURNISSEUR";
+            this.TitrePage.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.TitrePage.AutoSize = true;
+            this.TitrePage.Font = new System.Drawing.Font("Nirmala UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TitrePage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(22)))), ((int)(((byte)(40)))));
+            this.TitrePage.Location = new System.Drawing.Point(314, 23);
+            this.TitrePage.Name = "TitrePage";
+            this.TitrePage.Size = new System.Drawing.Size(346, 45);
+            this.TitrePage.TabIndex = 55;
+            this.TitrePage.Text = "FICHE FOURNISSEUR";
             // 
             // DetailsSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(252)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(954, 707);
+            this.Controls.Add(this.TitrePage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DetailsSupplier";
             this.Text = "DetailsSupplier";
@@ -59,6 +62,6 @@ namespace StiveLourd.Pages
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label TitrePage;
     }
 }

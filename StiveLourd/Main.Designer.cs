@@ -49,6 +49,7 @@ namespace StiveLourd
             // 
             // navContainer
             // 
+            this.navContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(252)))));
             this.navContainer.Dock = System.Windows.Forms.DockStyle.Right;
             this.navContainer.Location = new System.Drawing.Point(256, 0);
             this.navContainer.Name = "navContainer";
@@ -72,7 +73,7 @@ namespace StiveLourd
             this.menu_left.Dock = System.Windows.Forms.DockStyle.Left;
             this.menu_left.Location = new System.Drawing.Point(0, 0);
             this.menu_left.Name = "menu_left";
-            this.menu_left.Size = new System.Drawing.Size(259, 707);
+            this.menu_left.Size = new System.Drawing.Size(250, 707);
             this.menu_left.TabIndex = 7;
             // 
             // btn_active_commandes
@@ -226,6 +227,7 @@ namespace StiveLourd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(252)))));
             this.ClientSize = new System.Drawing.Size(1210, 707);
             this.Controls.Add(this.menu_left);
             this.Controls.Add(this.navContainer);

@@ -30,6 +30,7 @@ namespace StiveLourd.Pages
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.TitrePage = new System.Windows.Forms.Label();
             this.btn_add_client = new System.Windows.Forms.Button();
             this.textBoxEmailCli = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,7 +46,6 @@ namespace StiveLourd.Pages
             this.labelNumSIRET = new System.Windows.Forms.Label();
             this.textBoxNomCli = new System.Windows.Forms.TextBox();
             this.labelNomFour = new System.Windows.Forms.Label();
-            this.TitrePage = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,8 +70,20 @@ namespace StiveLourd.Pages
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(781, 703);
+            this.panel1.Size = new System.Drawing.Size(954, 707);
             this.panel1.TabIndex = 52;
+            // 
+            // TitrePage
+            // 
+            this.TitrePage.AutoSize = true;
+            this.TitrePage.Font = new System.Drawing.Font("Nirmala UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TitrePage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(22)))), ((int)(((byte)(40)))));
+            this.TitrePage.Location = new System.Drawing.Point(233, 33);
+            this.TitrePage.Name = "TitrePage";
+            this.TitrePage.Size = new System.Drawing.Size(302, 45);
+            this.TitrePage.TabIndex = 67;
+            this.TitrePage.Text = "NOUVEAU CLIENT";
+            this.TitrePage.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // btn_add_client
             // 
@@ -211,24 +223,12 @@ namespace StiveLourd.Pages
             this.labelNomFour.TabIndex = 52;
             this.labelNomFour.Text = "Nom du client";
             // 
-            // TitrePage
-            // 
-            this.TitrePage.AutoSize = true;
-            this.TitrePage.Font = new System.Drawing.Font("Nirmala UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TitrePage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(22)))), ((int)(((byte)(40)))));
-            this.TitrePage.Location = new System.Drawing.Point(233, 33);
-            this.TitrePage.Name = "TitrePage";
-            this.TitrePage.Size = new System.Drawing.Size(302, 45);
-            this.TitrePage.TabIndex = 67;
-            this.TitrePage.Text = "NOUVEAU CLIENT";
-            this.TitrePage.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // AddCustomers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(252)))));
-            this.ClientSize = new System.Drawing.Size(781, 703);
+            this.ClientSize = new System.Drawing.Size(954, 707);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

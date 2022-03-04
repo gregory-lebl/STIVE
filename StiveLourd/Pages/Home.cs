@@ -1,5 +1,4 @@
 ﻿using System;
-using StiveLourd.Data;
 using StiveLourd.Pages;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,51 +22,42 @@ namespace StiveLourd.Pages
         }
         private void btn_accueil_Click(object sender, EventArgs e)
         {
-            Database.Path = null;
             _main.NavigateTo("HOME");
         }
         private void btn_produits_Click_1(object sender, EventArgs e)
         {
-            Database.Path = null;
             _main.NavigateTo("PRODUCTS");
         }
         private void btn_fournisseurs_Click(object sender, EventArgs e)
         {
-            Database.Path = null;
             _main.NavigateTo("SUPPLIERS");
         }
         private void btn_clients_Click(object sender, EventArgs e)
         {
-            Database.Path = null;
             _main.NavigateTo("CUSTOMERS");
         }
         private void btn_commandes_Click(object sender, EventArgs e)
         {
-            Database.Path = null;
             _main.NavigateTo("COMMANDS");
         }
         private void btn_add_produit_Click(object sender, EventArgs e)
         {
-            Database.Path = null;
             _main.NavigateTo("ADD_PRODUCT");
             
         }
 
         private void btn_add_fournisseur_Click(object sender, EventArgs e)
         {
-            Database.Path = null;
             _main.NavigateTo("ADD_SUPPLIERS");
         }
 
         private void btn_add_client_Click(object sender, EventArgs e)
         {
-            Database.Path = null;
             _main.NavigateTo("ADD_CUSTOMERS");
         }
 
         private void btn_new_comm_fournisseur_Click(object sender, EventArgs e)
         {
-            Database.Path = null;
             _main.NavigateTo("ADD_COMM_SUPPLIERS");
         }
     }

@@ -43,5 +43,20 @@ namespace StiveLourd.Pages
         {
             nameNewProd=textBoxDesignation.ToString();
         }
+
+        private void AddProduct_Load(object sender, EventArgs e)
+        {
+            // TODO: cette ligne de code charge les données dans la table 'stiveDBDataSet.Supplier'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+            this.supplierTableAdapter.Fill(this.stiveDBDataSet.Supplier);
+            // TODO: cette ligne de code charge les données dans la table 'stiveDBDataSet.Family'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+            this.familyTableAdapter.Fill(this.stiveDBDataSet.Family);
+            // TODO: cette ligne de code charge les données dans la table 'stiveDBDataSet.Cepage'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+            this.cepageTableAdapter.Fill(this.stiveDBDataSet.Cepage);
+            // TODO: cette ligne de code charge les données dans la table 'stiveDBDataSet.Capacity'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+            this.capacityTableAdapter.Fill(this.stiveDBDataSet.Capacity);
+            // TODO: cette ligne de code charge les données dans la table 'stiveDBDataSet.Annee'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+            this.anneeTableAdapter.Fill(this.stiveDBDataSet.Annee);
+
+        }
     }
 }
