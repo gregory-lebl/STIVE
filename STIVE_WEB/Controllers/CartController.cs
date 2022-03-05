@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using STIVE_WEB.Models.Articles;
+using STIVE_WEB.Models.Orders;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -61,8 +62,13 @@ namespace STIVE_WEB.Controllers
         /// <summary>
         /// Créer une nouvelle commande en base de données
         /// </summary>
-        public void ConfirmOrder()
+        public void ConfirmOrder(IFormCollection form)
         {
+
+            var toto = form;
+            var quantity = form["orderQuantity"];
+            var productId = form["orderProductId"];
+
             string sessionCart = HttpContext.Session.GetString("Cart");
             if (!String.IsNullOrEmpty(sessionCart))
             {

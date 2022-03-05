@@ -29,6 +29,9 @@
         })
     }
 
+    $("#btn-order").on('click', function () {
+        $("#order-form").submit()
+    })
     
 
 
