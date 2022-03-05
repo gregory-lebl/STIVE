@@ -5,7 +5,7 @@ namespace STIVE_WEB.Models.Users
     public class Customer
     {
 
-
+        public string Id { get; set; }
         public string CustomerReference { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }

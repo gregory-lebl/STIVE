@@ -6,8 +6,7 @@
 
 <partial name="/Views/Shared/_Header.cshtml" />
 <section id="section-articles">
-    <h1>Notre sélection de vins</h1>
-    <div class="row">
+    <div class="row card-container">
         @foreach (var item in Model)
         {
             <div class="card" style="width: 18rem; background-color: #F0F0F0;">

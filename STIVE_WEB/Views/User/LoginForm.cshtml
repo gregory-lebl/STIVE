@@ -1,4 +1,18 @@
-﻿<section id="login-form">
+﻿@{
+    ViewData["Title"] = "Connexion";
+    var errorMessage = ViewData["errorMessage"];
+}
+<partial name="/Views/Shared/_Header.cshtml" />
+@if (errorMessage != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show container" role="alert">
+        @errorMessage.ToString()
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+<section id="login-form">
     <form asp-controller="User" asp-action="GetUser" method="POST">
         <div class="form-group">
             <label for="email">Email</label>

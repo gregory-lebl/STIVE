@@ -46,13 +46,32 @@ namespace STIVE_WEB.Controllers
                 return View(articlesList);
             }
         }
-
+        /// <summary>
+        /// Supprime un article du panier via son ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public RedirectResult DeleteItemFromCheckout(string id)
         {
             var session = HttpContext.Session.GetString("Cart");
             var toto = id;
 
             return Redirect("/Cart/Checkout");
+        }
+        /// <summary>
+        /// Créer une nouvelle commande en base de données
+        /// </summary>
+        public void ConfirmOrder()
+        {
+            string sessionCart = HttpContext.Session.GetString("Cart");
+            if (!String.IsNullOrEmpty(sessionCart))
+            {
+                
+            }
+            else
+            {
+                // Faire quelque chose si la session Cart est vide
+            }
         }
 
 

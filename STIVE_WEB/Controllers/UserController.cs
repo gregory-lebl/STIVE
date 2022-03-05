@@ -59,10 +59,24 @@ namespace STIVE_WEB.Controllers
         public async Task<ActionResult> GetUserAsync(string email, string password)
         {
 
-            bool customerAlreadyExist = await CheckIfCustomerExistAsync(email);
+            string endpoint = BaseUrl + "/api/customer";
 
+            HttpResponseMessage response = await client.GetAsync(endpoint);
 
-            return View("Home/index.cshtml");
+            List<Customer> customers = await response.Content.ReadAsAsync<List<Customer>>();
+
+            if (customers.Find(o => o.Email == email) != null)
+            {
+                Customer customer = customers.Find(o => o.Email == email);
+                HttpContext.Session.SetString("customerId", customer.Id);
+            }
+            else
+            {
+                ViewData["errorMessage"] = "Utilisateur introuvable";
+                return View("loginForm","User");
+            }
+
+            return RedirectToAction("Index", "Home");
         } 
         /// <summary>
         /// Vérifie si un utilisateur existe déjà en base de données
