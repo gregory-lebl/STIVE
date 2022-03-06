@@ -69,6 +69,7 @@ namespace STIVE_WEB.Controllers
             {
                 Customer customer = customers.Find(o => o.Email == email);
                 HttpContext.Session.SetString("customerId", customer.Id);
+
             }
             else
             {

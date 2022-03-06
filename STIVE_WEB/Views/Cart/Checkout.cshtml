@@ -30,8 +30,7 @@
                                 <strong class="checkout-item-product-info-price">Prix unitaire : <span class="checkout-item-product-info-price-value">@item.UnitPrice.ToString("N2")</span> €</strong>
                             </div>
                             <div class="checkout-item-product-quantity">
-                                <input type="number" name="orderQuantity" class="checkout-item-product-quantity-input" data-itemId="@item.Id" min="1" />
-                                <input type="hidden" name="orderProductId" value="@item.Id" />
+                                <input type="number" name="orderQuantity" class="checkout-item-product-quantity-input" data-itemId="@item.Id" min="1" value="1"/>
                                 <strong class="checkout-item-product-quantity-price"><span class="checkout-item-product-quantity-price-value">@item.UnitPrice.ToString("N2")</span> €</strong>
                             </div>
                             <div class="checkout-item-product-delete">
@@ -42,6 +41,7 @@
                         </div>
                     }
                 </div>
+                <input type="hidden" name="order" id="order" value="" />
             </form>
             <div class="checkout-price">
                 <p class="checkout-price-total-product"></p>

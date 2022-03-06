@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using STIVE_WEB.Models.Articles;
 using STIVE_WEB.Models.Orders;
 using System;
@@ -39,7 +41,7 @@ namespace STIVE_WEB.Controllers
                         Article article = await response.Content.ReadAsAsync<Article>();
 
                         articlesList.Add(article);
-                    } 
+                    }
 
 
                 }
@@ -62,12 +64,14 @@ namespace STIVE_WEB.Controllers
         /// <summary>
         /// Créer une nouvelle commande en base de données
         /// </summary>
-        public void ConfirmOrder(IFormCollection form)
+        public void ConfirmOrder(string order)
         {
 
-            var toto = form;
-            var quantity = form["orderQuantity"];
-            var productId = form["orderProductId"];
+            dynamic o = JsonConvert.DeserializeObject(order);
+
+            
+
+
 
             string sessionCart = HttpContext.Session.GetString("Cart");
             if (!String.IsNullOrEmpty(sessionCart))

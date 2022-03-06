@@ -12,8 +12,34 @@
 
             document.querySelector(".checkout-price .checkout-price-total-product").innerHTML = "Produits: " + totalPrice.toFixed(2) + " €"
             document.querySelector(".checkout-price .checkout-price-total").innerHTML = "Total: " + totalPrice.toFixed(2) + " €"
+
+            return totalPrice.toFixed(2)
         }
         getTotalPrice()
+
+        function buildOrderString() {
+            let allCheckoutItems = document.querySelectorAll(".checkout-item")
+            let jsonArray = []
+
+            allCheckoutItems.forEach(function (item) {
+                let articleId = $(item).find(".checkout-item-product-quantity-input").attr("data-itemid")
+                let unitPrice = $(item).find(".checkout-item-product-info-price-value").text()
+                let quantity = $(item).find(".checkout-item-product-quantity-input").val()
+
+                json = {
+                    "articleId": articleId,
+                    "unitPrice": unitPrice,
+                    "quantity": quantity
+                }
+
+                jsonArray.push(json)
+            })
+
+            
+            $("#order").val(JSON.stringify(jsonArray))
+
+            console.log($("#order").val())
+        }
 
         //Change le prix d'une commande en fonction de la quantitée commandée
         $(".checkout-item-product-quantity-input").on('change', function () {
@@ -26,7 +52,12 @@
             $(element).find(".checkout-item-product-quantity-price-value").text(newPrice.toString().replace(".", ","))
 
             getTotalPrice()
+            buildOrderString()
         })
+
+
+
+
     }
 
     $("#btn-order").on('click', function () {
