@@ -10,8 +10,8 @@ using STIVE_API.Data;
 namespace STIVE_API.Migrations
 {
     [DbContext(typeof(StiveDbContext))]
-    [Migration("20220103095617_testDeleteSetNull")]
-    partial class testDeleteSetNull
+    [Migration("20220104110811_CreateDb")]
+    partial class CreateDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,62 +37,62 @@ namespace STIVE_API.Migrations
                     b.HasData(
                         new
                         {
-                            AnneeId = new Guid("6be03856-f9c4-4534-86d3-22475e554c85"),
+                            AnneeId = new Guid("c1a6c3bb-ac27-4813-884a-2fc42598e55f"),
                             Number = 2010
                         },
                         new
                         {
-                            AnneeId = new Guid("1a312469-ca73-4c72-970a-ed00081634b4"),
+                            AnneeId = new Guid("52378546-5246-45c4-8269-6d2fc300880f"),
                             Number = 2011
                         },
                         new
                         {
-                            AnneeId = new Guid("d6a0eca7-603e-495a-ac10-d1c9c2e2e130"),
+                            AnneeId = new Guid("c1f6cf58-5933-4bcf-82aa-9bc396d093d2"),
                             Number = 2012
                         },
                         new
                         {
-                            AnneeId = new Guid("a47db76a-37f3-4f9b-8191-a958161c2975"),
+                            AnneeId = new Guid("e9f181db-2ca6-4ec6-9b5f-75d445c508a6"),
                             Number = 2013
                         },
                         new
                         {
-                            AnneeId = new Guid("3f06f824-f3cf-4298-8da8-bea58bc6322a"),
+                            AnneeId = new Guid("b9a7c085-42aa-41ee-b352-1b51b3cd73aa"),
                             Number = 2014
                         },
                         new
                         {
-                            AnneeId = new Guid("3bd076f5-ad0a-43ac-95cf-ffd6c2c9bb2e"),
+                            AnneeId = new Guid("c82d2d0a-a93f-450a-9bf8-bc8481f14d4a"),
                             Number = 2015
                         },
                         new
                         {
-                            AnneeId = new Guid("ba116877-ec84-4cb6-9d03-e51da6328522"),
+                            AnneeId = new Guid("084f36fe-f9cb-41f8-8331-dc91c5de3629"),
                             Number = 2016
                         },
                         new
                         {
-                            AnneeId = new Guid("2d2333ed-3175-4de5-8f3a-3ed346e7c2e4"),
+                            AnneeId = new Guid("ed2019f7-91dd-4c8c-a18e-8a80eeac278c"),
                             Number = 2017
                         },
                         new
                         {
-                            AnneeId = new Guid("c0f29beb-14d2-4271-97f9-637aa5032587"),
+                            AnneeId = new Guid("9db19ed3-ef3e-41f9-aad4-8935e522f5cc"),
                             Number = 2018
                         },
                         new
                         {
-                            AnneeId = new Guid("e4ba0631-1ebc-4146-abab-966bebb7dbc6"),
+                            AnneeId = new Guid("a9761754-bb5b-41f6-91dc-ef9113955d11"),
                             Number = 2019
                         },
                         new
                         {
-                            AnneeId = new Guid("76a90406-f789-4c48-8085-e0f2b1c848aa"),
+                            AnneeId = new Guid("6ffa1956-80ea-455d-8ef7-9a148cd63a03"),
                             Number = 2020
                         },
                         new
                         {
-                            AnneeId = new Guid("190a8821-5afa-4d1b-800e-87d50ad049a0"),
+                            AnneeId = new Guid("b3e362eb-5f91-4cae-a2bd-66c88b210838"),
                             Number = 2021
                         });
                 });
@@ -115,7 +115,7 @@ namespace STIVE_API.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("FamilyId")
+                    b.Property<Guid?>("FamilyId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
@@ -127,7 +127,10 @@ namespace STIVE_API.Migrations
                     b.Property<string>("Ref")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("SupplierId")
+                    b.Property<Guid?>("StockId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("SupplierId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<double>("UnitPrice")
@@ -143,6 +146,8 @@ namespace STIVE_API.Migrations
 
                     b.HasIndex("FamilyId");
 
+                    b.HasIndex("StockId");
+
                     b.HasIndex("SupplierId");
 
                     b.ToTable("Article");
@@ -150,28 +155,30 @@ namespace STIVE_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("9955b349-69e1-4bc1-8e12-f9c2c42715b1"),
-                            AnneeId = new Guid("6be03856-f9c4-4534-86d3-22475e554c85"),
-                            CapacityId = new Guid("6a1140bc-232d-4b79-9f35-9fc86756e5fd"),
-                            CepageId = new Guid("3a8c1ec5-2a13-4ad1-9a7f-949c0b34d04f"),
+                            Id = new Guid("b23fb87c-58d7-4cdd-a005-6ca61ab3bf9e"),
+                            AnneeId = new Guid("c1a6c3bb-ac27-4813-884a-2fc42598e55f"),
+                            CapacityId = new Guid("930b60dc-1bd8-408c-a2f0-05db84cce46f"),
+                            CepageId = new Guid("0238c22a-ba09-42a9-be9f-9a16ffb401c4"),
                             Description = "Description à venir",
-                            FamilyId = new Guid("2935a39f-ad93-4da1-b51d-c591343e0aa6"),
+                            FamilyId = new Guid("6ea98eed-de1e-41d5-8365-648c55e94f18"),
                             Name = "Bouteille de vin",
                             Ref = "152DER147DFM9",
-                            SupplierId = new Guid("2c3d4e8b-46b7-44ae-a2b5-e1c19bf33f02"),
+                            StockId = new Guid("79c64d52-5413-427f-82d3-0d3a274bf394"),
+                            SupplierId = new Guid("a78e8a26-7ffb-4f8b-adbb-cf9e8e1596fd"),
                             UnitPrice = 5.5999999999999996
                         },
                         new
                         {
-                            Id = new Guid("29ef26fa-f385-40b8-aa77-6858dda5eb8d"),
-                            AnneeId = new Guid("190a8821-5afa-4d1b-800e-87d50ad049a0"),
-                            CapacityId = new Guid("fa5ec0b1-ff64-4055-93d9-09934fe68050"),
-                            CepageId = new Guid("d08b1746-ec42-4299-a131-d4cb77e139bc"),
+                            Id = new Guid("7019cfca-d792-4937-9b77-0ce6ca222560"),
+                            AnneeId = new Guid("b3e362eb-5f91-4cae-a2bd-66c88b210838"),
+                            CapacityId = new Guid("ea5293b2-42ab-49e1-aaa7-c08b5c7e279b"),
+                            CepageId = new Guid("309c0610-497a-475c-a077-dcfc5dccab24"),
                             Description = "Description à venir",
-                            FamilyId = new Guid("dfdd68d5-613e-487e-a870-e49a440b869e"),
+                            FamilyId = new Guid("8221f2b1-ea4b-49a1-a79b-dfa8cf56562f"),
                             Name = "Bouteille de bordeau",
                             Ref = "452SER197DRP9",
-                            SupplierId = new Guid("2c3d4e8b-46b7-44ae-a2b5-e1c19bf33f02"),
+                            StockId = new Guid("f8c0c856-081b-4920-ade9-348e4a81ce5c"),
+                            SupplierId = new Guid("a78e8a26-7ffb-4f8b-adbb-cf9e8e1596fd"),
                             UnitPrice = 3.5
                         });
                 });
@@ -192,12 +199,12 @@ namespace STIVE_API.Migrations
                     b.HasData(
                         new
                         {
-                            CapacityId = new Guid("6a1140bc-232d-4b79-9f35-9fc86756e5fd"),
+                            CapacityId = new Guid("930b60dc-1bd8-408c-a2f0-05db84cce46f"),
                             BottleCapacity = 75.0
                         },
                         new
                         {
-                            CapacityId = new Guid("fa5ec0b1-ff64-4055-93d9-09934fe68050"),
+                            CapacityId = new Guid("ea5293b2-42ab-49e1-aaa7-c08b5c7e279b"),
                             BottleCapacity = 37.5
                         });
                 });
@@ -221,43 +228,43 @@ namespace STIVE_API.Migrations
                     b.HasData(
                         new
                         {
-                            CepageId = new Guid("3a8c1ec5-2a13-4ad1-9a7f-949c0b34d04f"),
+                            CepageId = new Guid("0238c22a-ba09-42a9-be9f-9a16ffb401c4"),
                             Name = "Chardonnay",
                             Origin = "France"
                         },
                         new
                         {
-                            CepageId = new Guid("ff304109-18c8-4595-856f-5d2318daa77b"),
+                            CepageId = new Guid("dcd8ea04-642c-4106-9dda-a8ebb563f474"),
                             Name = "Sauvignon",
                             Origin = "France"
                         },
                         new
                         {
-                            CepageId = new Guid("79695e24-83fa-43f5-8741-6b76bd244349"),
+                            CepageId = new Guid("57be4b1e-93d4-4c0d-829c-f7c677d532ac"),
                             Name = "Pinot Noir",
                             Origin = "Allemagne"
                         },
                         new
                         {
-                            CepageId = new Guid("2d112c5e-cf26-4f3e-bf3d-07dc4b767062"),
+                            CepageId = new Guid("dcb281d5-fea8-417e-ad0f-884b8037a50f"),
                             Name = "Riesling",
                             Origin = "France"
                         },
                         new
                         {
-                            CepageId = new Guid("e71ec35a-710d-4522-90a2-23000d66f912"),
+                            CepageId = new Guid("02c61c60-6881-49de-aa56-159f40f0903b"),
                             Name = "Gewurztraminer",
                             Origin = "France"
                         },
                         new
                         {
-                            CepageId = new Guid("6c9d2be6-2384-4f15-b1f5-49f14351b58b"),
+                            CepageId = new Guid("ca68f062-e8fc-4890-9d00-2f4d463d8309"),
                             Name = "Merlot noir",
                             Origin = "France"
                         },
                         new
                         {
-                            CepageId = new Guid("d08b1746-ec42-4299-a131-d4cb77e139bc"),
+                            CepageId = new Guid("309c0610-497a-475c-a077-dcfc5dccab24"),
                             Name = "Mauzac rosé",
                             Origin = "France"
                         });
@@ -279,32 +286,32 @@ namespace STIVE_API.Migrations
                     b.HasData(
                         new
                         {
-                            FamilyId = new Guid("2935a39f-ad93-4da1-b51d-c591343e0aa6"),
+                            FamilyId = new Guid("6ea98eed-de1e-41d5-8365-648c55e94f18"),
                             Name = "Rosé"
                         },
                         new
                         {
-                            FamilyId = new Guid("1aa5b5ce-56c7-45e1-a56d-265a8e7b6c9c"),
+                            FamilyId = new Guid("55c05e1e-b858-47d8-8fca-f0dee30365e6"),
                             Name = "Vin blanc"
                         },
                         new
                         {
-                            FamilyId = new Guid("b1f5a4d6-9764-4c5f-b25b-6cf4c7dc7d9b"),
+                            FamilyId = new Guid("869572a3-97ed-4052-a5da-2d104cec0e00"),
                             Name = "Vin rouge"
                         },
                         new
                         {
-                            FamilyId = new Guid("1b53644a-ead1-456d-9cf7-de41bff335e6"),
+                            FamilyId = new Guid("34c93c2f-5aa5-4513-8e27-3ad9e3ffa5f3"),
                             Name = "Muscat"
                         },
                         new
                         {
-                            FamilyId = new Guid("9433da18-8302-470f-a2d9-4cf66b5c55c9"),
+                            FamilyId = new Guid("561adae5-d99d-4fee-8091-9ce52f8adabd"),
                             Name = "Vin cuit"
                         },
                         new
                         {
-                            FamilyId = new Guid("dfdd68d5-613e-487e-a870-e49a440b869e"),
+                            FamilyId = new Guid("8221f2b1-ea4b-49a1-a79b-dfa8cf56562f"),
                             Name = "Mousseux"
                         });
                 });
@@ -313,9 +320,6 @@ namespace STIVE_API.Migrations
                 {
                     b.Property<Guid>("StockId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("ArticleId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Limit")
@@ -329,9 +333,30 @@ namespace STIVE_API.Migrations
 
                     b.HasKey("StockId");
 
-                    b.HasIndex("ArticleId");
-
                     b.ToTable("Stock");
+
+                    b.HasData(
+                        new
+                        {
+                            StockId = new Guid("79c64d52-5413-427f-82d3-0d3a274bf394"),
+                            Limit = 5,
+                            Provision = 15,
+                            Quantity = 10
+                        },
+                        new
+                        {
+                            StockId = new Guid("45821a59-b724-40f4-a25d-a3238b2ddc66"),
+                            Limit = 1,
+                            Provision = 5,
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            StockId = new Guid("f8c0c856-081b-4920-ade9-348e4a81ce5c"),
+                            Limit = 20,
+                            Provision = 100,
+                            Quantity = 50
+                        });
                 });
 
             modelBuilder.Entity("STIVE_API.Data.Models.Orders.ArticleRow", b =>
@@ -393,22 +418,22 @@ namespace STIVE_API.Migrations
                     b.HasData(
                         new
                         {
-                            ClientOrderId = new Guid("c6bdb5d8-033e-402d-ba03-22c4c1ce269a"),
-                            CustomerId = new Guid("5367f7e7-78f3-47be-83cd-e660a2bed3e3"),
-                            Date = new DateTime(2022, 1, 3, 9, 56, 16, 563, DateTimeKind.Utc).AddTicks(3611),
+                            ClientOrderId = new Guid("4bcb4d67-f8ba-43a4-ba0e-bb94bd673246"),
+                            CustomerId = new Guid("8d0e7981-0abf-4a68-9960-a4ee1a9eab0d"),
+                            Date = new DateTime(2022, 1, 4, 11, 8, 10, 827, DateTimeKind.Utc).AddTicks(2125),
                             HTPrice = 0.0,
                             Reference = "TEST123456",
-                            StatusId = new Guid("cd08ae98-4963-4e7c-a689-b1d67f39323b"),
+                            StatusId = new Guid("aa76db49-4fbd-4c59-96b1-56051b3b6311"),
                             TTCPrice = 0.0
                         },
                         new
                         {
-                            ClientOrderId = new Guid("7aa3d14d-89a0-414e-8fa9-9d7547be52b6"),
-                            CustomerId = new Guid("bf41aa26-965b-4219-9505-31c1f8e5a0ea"),
-                            Date = new DateTime(2022, 1, 3, 9, 56, 16, 563, DateTimeKind.Utc).AddTicks(4087),
+                            ClientOrderId = new Guid("52ef1b6d-ea90-4959-b76b-fa4bb1a017e3"),
+                            CustomerId = new Guid("dcb58c9f-2d91-45c5-8662-22c6bc0fc7a5"),
+                            Date = new DateTime(2022, 1, 4, 11, 8, 10, 827, DateTimeKind.Utc).AddTicks(2436),
                             HTPrice = 0.0,
                             Reference = "TEST234567",
-                            StatusId = new Guid("cd08ae98-4963-4e7c-a689-b1d67f39323b"),
+                            StatusId = new Guid("aa76db49-4fbd-4c59-96b1-56051b3b6311"),
                             TTCPrice = 0.0
                         });
                 });
@@ -459,47 +484,47 @@ namespace STIVE_API.Migrations
                     b.HasData(
                         new
                         {
-                            StatusId = new Guid("cd08ae98-4963-4e7c-a689-b1d67f39323b"),
+                            StatusId = new Guid("aa76db49-4fbd-4c59-96b1-56051b3b6311"),
                             Name = "Vérification en cours"
                         },
                         new
                         {
-                            StatusId = new Guid("98400fab-9298-4152-b32d-241e4adb8f7e"),
+                            StatusId = new Guid("cc980872-fcd9-44da-9063-b794492dec76"),
                             Name = "Terminée"
                         },
                         new
                         {
-                            StatusId = new Guid("3478bc93-3590-4908-b5be-4eb47aff5c7f"),
+                            StatusId = new Guid("69068c14-1938-448d-a644-f92e96bd3494"),
                             Name = "Archivée"
                         },
                         new
                         {
-                            StatusId = new Guid("d463f193-fd35-4be2-8d0c-cac920b0e6ec"),
+                            StatusId = new Guid("38bea2dc-87d2-40d5-8f9e-a85f5ea9f7e7"),
                             Name = "Livrée"
                         },
                         new
                         {
-                            StatusId = new Guid("36995554-68ac-4055-aa74-9697e3937409"),
+                            StatusId = new Guid("9ff36dbc-2528-44cd-a296-2a19cdc2431c"),
                             Name = "En cours d'approvisionnement"
                         },
                         new
                         {
-                            StatusId = new Guid("fa6760b9-97be-4e4f-bfa1-16ee3e6a9036"),
+                            StatusId = new Guid("9bf51dcc-c6e7-48ca-ba79-b3ea1265b3ca"),
                             Name = "En cours de traitement"
                         },
                         new
                         {
-                            StatusId = new Guid("13803abd-52ad-4f39-9b0f-9f7ad844261e"),
+                            StatusId = new Guid("f7254d9d-3bf3-42ea-a2b4-b5daeb7071ca"),
                             Name = "En préparation"
                         },
                         new
                         {
-                            StatusId = new Guid("0ae7e177-4df0-4404-8e98-2ba7e3f87338"),
+                            StatusId = new Guid("7dcf3b2e-532d-4c9e-9ca2-f999f28b1a60"),
                             Name = "En cours d'acheminement"
                         },
                         new
                         {
-                            StatusId = new Guid("13dc14a7-51be-4d27-b52c-6068915d6042"),
+                            StatusId = new Guid("96c620bb-11e9-46fc-a012-d778c8b887fc"),
                             Name = "j'ai volé votre bouteille, merci, bisous, de Greg."
                         });
                 });
@@ -510,7 +535,7 @@ namespace STIVE_API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Adress")
+                    b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("City")
@@ -535,8 +560,8 @@ namespace STIVE_API.Migrations
                     b.HasData(
                         new
                         {
-                            SupplierId = new Guid("2c3d4e8b-46b7-44ae-a2b5-e1c19bf33f02"),
-                            Adress = "14 Rue Louis Ruquier",
+                            SupplierId = new Guid("a78e8a26-7ffb-4f8b-adbb-cf9e8e1596fd"),
+                            Address = "14 Rue Louis Ruquier",
                             City = "Sotteville-lès-Rouen",
                             Cp = "76300",
                             Name = "La Centrale des Vins",
@@ -551,7 +576,7 @@ namespace STIVE_API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Adress")
+                    b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("City")
@@ -585,11 +610,11 @@ namespace STIVE_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("5367f7e7-78f3-47be-83cd-e660a2bed3e3"),
-                            Adress = "1 chemin des alisiers 67700 Saverne",
+                            Id = new Guid("8d0e7981-0abf-4a68-9960-a4ee1a9eab0d"),
+                            Address = "1 chemin des alisiers 67700 Saverne",
                             City = "Saverne",
                             Cp = "67700",
-                            CustomerReference = "FFRIE3A72FLJ",
+                            CustomerReference = "8LSMA21JCF2V",
                             Email = "luciole.trp@gmail.com",
                             FirstName = "Lucile",
                             LastName = "TRIPIER",
@@ -598,11 +623,11 @@ namespace STIVE_API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("bf41aa26-965b-4219-9505-31c1f8e5a0ea"),
-                            Adress = "123 rue des chats",
+                            Id = new Guid("dcb58c9f-2d91-45c5-8662-22c6bc0fc7a5"),
+                            Address = "123 rue des chats",
                             City = "CroquetteLand",
                             Cp = "000009",
-                            CustomerReference = "7BTWBBNCXCLX",
+                            CustomerReference = "D4MU6W3VTB9N",
                             Email = "gregory.lbl@gmail.com",
                             FirstName = "Gregory",
                             LastName = "LEBLOND",
@@ -617,7 +642,7 @@ namespace STIVE_API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Adress")
+                    b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("City")
@@ -651,12 +676,12 @@ namespace STIVE_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("3c12d81d-dc5d-4c07-9613-afb5231ad6d1"),
-                            Adress = "3 Grande rue",
+                            Id = new Guid("7e1666a1-1d9d-44f1-b2da-c37e2de90868"),
+                            Address = "3 Grande rue",
                             City = "Rouen",
                             Cp = "76000",
                             Email = "mariam.el@gmail.com",
-                            EmployeNumber = "F3OFC2OPBR",
+                            EmployeNumber = "B4GBFWYR3J",
                             FirstName = "Mariam",
                             LastName = "EL-ALLALI",
                             Password = "123",
@@ -664,12 +689,12 @@ namespace STIVE_API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("26f67a74-e43b-44d1-b982-6f7013ba8144"),
-                            Adress = "57 Boulevard Gambetta",
+                            Id = new Guid("d25e3f5b-e73b-416b-a69c-34ea9231c942"),
+                            Address = "57 Boulevard Gambetta",
                             City = "Evreux",
                             Cp = "27000",
                             Email = "francois.dupont@yahoo.com",
-                            EmployeNumber = "GIZVZ0NC0R",
+                            EmployeNumber = "LG5XTGCC3L",
                             FirstName = "François",
                             LastName = "DUPONT",
                             Password = "123",
@@ -677,12 +702,12 @@ namespace STIVE_API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("319ec578-2856-46e7-ba0e-c67d268cc2ea"),
-                            Adress = "21 Rue Victor Hugo",
+                            Id = new Guid("3d4d2b16-b68d-4e74-ba96-3b84ec9e802e"),
+                            Address = "21 Rue Victor Hugo",
                             City = "Evreux",
                             Cp = "27000",
                             Email = "francine.dupont@gmail.com",
-                            EmployeNumber = "BRPQA4IBNN",
+                            EmployeNumber = "6MIKFQND5V",
                             FirstName = "Francine",
                             LastName = "DUPONT",
                             Password = "123",
@@ -690,12 +715,12 @@ namespace STIVE_API.Migrations
                         },
                         new
                         {
-                            Id = new Guid("aa63a796-0a70-406a-8882-f1748cffd1ef"),
-                            Adress = "3 Rue du Bout au Roussel",
+                            Id = new Guid("a4a8d744-845d-402c-b9f0-fc5d5905abfe"),
+                            Address = "3 Rue du Bout au Roussel",
                             City = "Champenard",
                             Cp = "27600",
                             Email = "jeremy.petit@outlook.com",
-                            EmployeNumber = "6UT1JJQQDL",
+                            EmployeNumber = "619W24GYTQ",
                             FirstName = "Jeremy",
                             LastName = "PETIT",
                             Password = "123",
@@ -723,14 +748,17 @@ namespace STIVE_API.Migrations
                     b.HasOne("STIVE_API.Data.Models.Articles.Family", "Family")
                         .WithMany()
                         .HasForeignKey("FamilyId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("STIVE_API.Data.Models.Articles.Stock", "Stock")
+                        .WithMany()
+                        .HasForeignKey("StockId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("STIVE_API.Data.Models.Orders.Supplier", "Supplier")
                         .WithMany()
                         .HasForeignKey("SupplierId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Annee");
 
@@ -740,18 +768,9 @@ namespace STIVE_API.Migrations
 
                     b.Navigation("Family");
 
+                    b.Navigation("Stock");
+
                     b.Navigation("Supplier");
-                });
-
-            modelBuilder.Entity("STIVE_API.Data.Models.Articles.Stock", b =>
-                {
-                    b.HasOne("STIVE_API.Data.Models.Articles.Article", "Article")
-                        .WithMany()
-                        .HasForeignKey("ArticleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Article");
                 });
 
             modelBuilder.Entity("STIVE_API.Data.Models.Orders.ArticleRow", b =>

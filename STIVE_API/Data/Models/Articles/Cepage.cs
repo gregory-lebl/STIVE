@@ -8,7 +8,7 @@ namespace STIVE_API.Data.Models.Articles
 {
     public class Cepage
     {
-
+        
         [Key] public Guid CepageId { get; set; }
         public string Name { get; set; }
         public string Origin { get; set; }
