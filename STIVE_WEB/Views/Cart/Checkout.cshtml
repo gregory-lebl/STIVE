@@ -17,7 +17,7 @@
         <h1>Votre panier</h1>
         <br />
         <div class="section-checkout-container">
-            <form asp-controller="Cart" asp-action="ConfirmOrder" method="post" id="order-form">
+            <form asp-controller="Cart" asp-action="ConfirmOrder" method="post" id="order-form" style="width: 70%;">
                 <div class="checkout-list-item">
                     @foreach (var item in Model)
                     {

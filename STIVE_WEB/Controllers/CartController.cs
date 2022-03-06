@@ -1,10 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using STIVE_WEB.Models.Articles;
 using STIVE_WEB.Models.Orders;
-using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -64,24 +62,23 @@ namespace STIVE_WEB.Controllers
         /// <summary>
         /// Créer une nouvelle commande en base de données
         /// </summary>
-        public void ConfirmOrder(string order)
+        public void ConfirmOrder(string jsonOrder)
         {
 
-            dynamic o = JsonConvert.DeserializeObject(order);
+            List<TestOrder> orderList = JsonConvert.DeserializeObject<List<TestOrder>>(jsonOrder);
 
-            
+            string endpoint = BaseUrl + "";
 
-
-
-            string sessionCart = HttpContext.Session.GetString("Cart");
-            if (!String.IsNullOrEmpty(sessionCart))
+            foreach (TestOrder order in orderList)
             {
                 
             }
-            else
-            {
-                // Faire quelque chose si la session Cart est vide
-            }
+
+            //List<TestOrder> toto = JsonSerializer.Deserialize<List<TestOrder>>();
+
+            var session = HttpContext.Session.GetString("customerId");
+            
+
         }
 
 
