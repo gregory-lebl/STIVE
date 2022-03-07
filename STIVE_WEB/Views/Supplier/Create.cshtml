@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Test ajout fornisseur";
+    @model STIVE_WEB.Models.Orders.Supplier;
+}
+
+    <div class="col-md-6">
+        <form asp-controller="Supplier" asp-action="Create" method="post">
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label">Nom du fournisseur</label>
+                <input type="text" class="form-control" asp-for="Name" value="FournisseurQuiFournit">
+            </div>
+            <div class="mb-3">
+                <label asp-for="Address" class="form-label">Adresse</label>
+                <input type="text" class="form-control" asp-for="Address" value="123 rue de la fourniture">
+            </div>
+            <div class="mb-3">
+                <label asp-for="Cp" class="form-label">Code Postal</label>
+                <input type="text" class="form-control" asp-for="Cp" value="75000">
+            </div>
+            <div class="mb-3">
+                <label asp-for="City" class="form-label">Ville</label>
+                <input type="text" class="form-control" asp-for="City" value="Paris">
+            </div>
+            <div class="mb-3">
+                <label asp-for="Siret" class="form-label">SIRET</label>
+                <input type="text" class="form-control" asp-for="Siret" value="442 293 666 00045">
+            </div>
+            <div class="mb-3">
+                <label asp-for="PhoneNumber" class="form-label">Téléphone</label>
+                <input type="text" class="form-control" asp-for="PhoneNumber" value="02 35 65 76 35">
+            </div>
+            <button type="submit" class="btn btn-primary">Envoyer le formulaire</button>
+        </form>
+    </div>
