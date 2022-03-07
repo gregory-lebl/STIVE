@@ -12,7 +12,7 @@ namespace StiveLourd.Pages
 {
     public partial class DetailsSupplier : Form
     {
-        public DetailsSupplier()
+        public DetailsSupplier(Main main)
         {
             InitializeComponent();
         }

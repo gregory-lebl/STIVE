@@ -13,9 +13,17 @@ namespace StiveLourd.Pages
     public partial class DetailsProduct : Form
     {
         
-        public DetailsProduct(Article test)
+        public DetailsProduct(Article article)
         {
             InitializeComponent();
+            NomLabel.Text=article.name;
+            referenceLabel.Text=article.Ref;
+            FamilleLabel.Text=article.family;
+            VolumeLabel.Text=article.capacity;
+            PrixLabel.Text=Convert.ToString(article.unitPrice);
+            DescriptionLabel.Text=article.description;
+            FournisseurLabel.Text=article.supplier;
+
         }
     }
 }

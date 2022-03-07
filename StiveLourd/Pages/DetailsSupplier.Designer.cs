@@ -29,8 +29,19 @@ namespace StiveLourd.Pages
         /// </summary>
         private void InitializeComponent()
         {
+            this.navContainer = new System.Windows.Forms.Panel();
             this.TitrePage = new System.Windows.Forms.Label();
+            this.navContainer.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // navContainer
+            // 
+            this.navContainer.Controls.Add(this.TitrePage);
+            this.navContainer.Location = new System.Drawing.Point(0, 0);
+            this.navContainer.Name = "navContainer";
+            this.navContainer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.navContainer.Size = new System.Drawing.Size(954, 715);
+            this.navContainer.TabIndex = 7;
             // 
             // TitrePage
             // 
@@ -38,10 +49,10 @@ namespace StiveLourd.Pages
             this.TitrePage.AutoSize = true;
             this.TitrePage.Font = new System.Drawing.Font("Nirmala UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TitrePage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(22)))), ((int)(((byte)(40)))));
-            this.TitrePage.Location = new System.Drawing.Point(314, 23);
+            this.TitrePage.Location = new System.Drawing.Point(304, 28);
             this.TitrePage.Name = "TitrePage";
             this.TitrePage.Size = new System.Drawing.Size(346, 45);
-            this.TitrePage.TabIndex = 55;
+            this.TitrePage.TabIndex = 56;
             this.TitrePage.Text = "FICHE FOURNISSEUR";
             // 
             // DetailsSupplier
@@ -49,19 +60,21 @@ namespace StiveLourd.Pages
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(252)))));
-            this.ClientSize = new System.Drawing.Size(954, 707);
-            this.Controls.Add(this.TitrePage);
+            this.ClientSize = new System.Drawing.Size(954, 715);
+            this.Controls.Add(this.navContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DetailsSupplier";
             this.Text = "DetailsSupplier";
             this.Load += new System.EventHandler(this.DetailsSupplier_Load);
+            this.navContainer.ResumeLayout(false);
+            this.navContainer.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
+        private System.Windows.Forms.Panel navContainer;
         private System.Windows.Forms.Label TitrePage;
     }
 }
