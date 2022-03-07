@@ -32,19 +32,19 @@ namespace StiveLourd.Pages
             this.panel1 = new System.Windows.Forms.Panel();
             this.TitrePage = new System.Windows.Forms.Label();
             this.btn_add_client = new System.Windows.Forms.Button();
-            this.textBoxEmailCli = new System.Windows.Forms.TextBox();
+            this.emailText = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBoxVilleCli = new System.Windows.Forms.TextBox();
+            this.cityText = new System.Windows.Forms.TextBox();
             this.labelVilleFour = new System.Windows.Forms.Label();
-            this.textBoxCPCli = new System.Windows.Forms.TextBox();
+            this.cpText = new System.Windows.Forms.TextBox();
             this.labelCPFour = new System.Windows.Forms.Label();
-            this.textBoxAdresseCli = new System.Windows.Forms.TextBox();
+            this.AdressText = new System.Windows.Forms.TextBox();
             this.labelAdresseFour = new System.Windows.Forms.Label();
-            this.textBoxNumTelCli = new System.Windows.Forms.TextBox();
+            this.phonenumberText = new System.Windows.Forms.TextBox();
             this.labelNumTelFour = new System.Windows.Forms.Label();
-            this.textBoxPrenomCli = new System.Windows.Forms.TextBox();
+            this.firstnameText = new System.Windows.Forms.TextBox();
             this.labelNumSIRET = new System.Windows.Forms.Label();
-            this.textBoxNomCli = new System.Windows.Forms.TextBox();
+            this.lastnameText = new System.Windows.Forms.TextBox();
             this.labelNomFour = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -53,24 +53,23 @@ namespace StiveLourd.Pages
             // 
             this.panel1.Controls.Add(this.TitrePage);
             this.panel1.Controls.Add(this.btn_add_client);
-            this.panel1.Controls.Add(this.textBoxEmailCli);
+            this.panel1.Controls.Add(this.emailText);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.textBoxVilleCli);
+            this.panel1.Controls.Add(this.cityText);
             this.panel1.Controls.Add(this.labelVilleFour);
-            this.panel1.Controls.Add(this.textBoxCPCli);
+            this.panel1.Controls.Add(this.cpText);
             this.panel1.Controls.Add(this.labelCPFour);
-            this.panel1.Controls.Add(this.textBoxAdresseCli);
+            this.panel1.Controls.Add(this.AdressText);
             this.panel1.Controls.Add(this.labelAdresseFour);
-            this.panel1.Controls.Add(this.textBoxNumTelCli);
+            this.panel1.Controls.Add(this.phonenumberText);
             this.panel1.Controls.Add(this.labelNumTelFour);
-            this.panel1.Controls.Add(this.textBoxPrenomCli);
+            this.panel1.Controls.Add(this.firstnameText);
             this.panel1.Controls.Add(this.labelNumSIRET);
-            this.panel1.Controls.Add(this.textBoxNomCli);
+            this.panel1.Controls.Add(this.lastnameText);
             this.panel1.Controls.Add(this.labelNomFour);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(954, 707);
+            this.panel1.Size = new System.Drawing.Size(954, 715);
             this.panel1.TabIndex = 52;
             // 
             // TitrePage
@@ -90,19 +89,20 @@ namespace StiveLourd.Pages
             this.btn_add_client.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(195)))), ((int)(((byte)(198)))));
             this.btn_add_client.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add_client.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(22)))), ((int)(((byte)(40)))));
-            this.btn_add_client.Location = new System.Drawing.Point(647, 603);
+            this.btn_add_client.Location = new System.Drawing.Point(467, 523);
             this.btn_add_client.Name = "btn_add_client";
             this.btn_add_client.Size = new System.Drawing.Size(111, 70);
             this.btn_add_client.TabIndex = 66;
             this.btn_add_client.Text = "Ajouter client";
             this.btn_add_client.UseVisualStyleBackColor = false;
+            this.btn_add_client.Click += new System.EventHandler(this.btn_add_client_Click);
             // 
-            // textBoxEmailCli
+            // emailText
             // 
-            this.textBoxEmailCli.Location = new System.Drawing.Point(25, 436);
-            this.textBoxEmailCli.Name = "textBoxEmailCli";
-            this.textBoxEmailCli.Size = new System.Drawing.Size(382, 30);
-            this.textBoxEmailCli.TabIndex = 65;
+            this.emailText.Location = new System.Drawing.Point(25, 436);
+            this.emailText.Name = "emailText";
+            this.emailText.Size = new System.Drawing.Size(382, 30);
+            this.emailText.TabIndex = 65;
             // 
             // label1
             // 
@@ -115,12 +115,12 @@ namespace StiveLourd.Pages
             this.label1.TabIndex = 64;
             this.label1.Text = "Email du client";
             // 
-            // textBoxVilleCli
+            // cityText
             // 
-            this.textBoxVilleCli.Location = new System.Drawing.Point(286, 352);
-            this.textBoxVilleCli.Name = "textBoxVilleCli";
-            this.textBoxVilleCli.Size = new System.Drawing.Size(472, 30);
-            this.textBoxVilleCli.TabIndex = 63;
+            this.cityText.Location = new System.Drawing.Point(286, 352);
+            this.cityText.Name = "cityText";
+            this.cityText.Size = new System.Drawing.Size(472, 30);
+            this.cityText.TabIndex = 63;
             // 
             // labelVilleFour
             // 
@@ -133,12 +133,12 @@ namespace StiveLourd.Pages
             this.labelVilleFour.TabIndex = 62;
             this.labelVilleFour.Text = "Ville";
             // 
-            // textBoxCPCli
+            // cpText
             // 
-            this.textBoxCPCli.Location = new System.Drawing.Point(25, 352);
-            this.textBoxCPCli.Name = "textBoxCPCli";
-            this.textBoxCPCli.Size = new System.Drawing.Size(227, 30);
-            this.textBoxCPCli.TabIndex = 61;
+            this.cpText.Location = new System.Drawing.Point(25, 352);
+            this.cpText.Name = "cpText";
+            this.cpText.Size = new System.Drawing.Size(227, 30);
+            this.cpText.TabIndex = 61;
             // 
             // labelCPFour
             // 
@@ -151,12 +151,12 @@ namespace StiveLourd.Pages
             this.labelCPFour.TabIndex = 60;
             this.labelCPFour.Text = "Code Postal";
             // 
-            // textBoxAdresseCli
+            // AdressText
             // 
-            this.textBoxAdresseCli.Location = new System.Drawing.Point(286, 278);
-            this.textBoxAdresseCli.Name = "textBoxAdresseCli";
-            this.textBoxAdresseCli.Size = new System.Drawing.Size(472, 30);
-            this.textBoxAdresseCli.TabIndex = 59;
+            this.AdressText.Location = new System.Drawing.Point(286, 278);
+            this.AdressText.Name = "AdressText";
+            this.AdressText.Size = new System.Drawing.Size(472, 30);
+            this.AdressText.TabIndex = 59;
             // 
             // labelAdresseFour
             // 
@@ -169,12 +169,12 @@ namespace StiveLourd.Pages
             this.labelAdresseFour.TabIndex = 58;
             this.labelAdresseFour.Text = "Adresse";
             // 
-            // textBoxNumTelCli
+            // phonenumberText
             // 
-            this.textBoxNumTelCli.Location = new System.Drawing.Point(25, 278);
-            this.textBoxNumTelCli.Name = "textBoxNumTelCli";
-            this.textBoxNumTelCli.Size = new System.Drawing.Size(227, 30);
-            this.textBoxNumTelCli.TabIndex = 57;
+            this.phonenumberText.Location = new System.Drawing.Point(25, 278);
+            this.phonenumberText.Name = "phonenumberText";
+            this.phonenumberText.Size = new System.Drawing.Size(227, 30);
+            this.phonenumberText.TabIndex = 57;
             // 
             // labelNumTelFour
             // 
@@ -187,12 +187,12 @@ namespace StiveLourd.Pages
             this.labelNumTelFour.TabIndex = 56;
             this.labelNumTelFour.Text = "Numéro de Téléphone";
             // 
-            // textBoxPrenomCli
+            // firstnameText
             // 
-            this.textBoxPrenomCli.Location = new System.Drawing.Point(387, 191);
-            this.textBoxPrenomCli.Name = "textBoxPrenomCli";
-            this.textBoxPrenomCli.Size = new System.Drawing.Size(371, 30);
-            this.textBoxPrenomCli.TabIndex = 55;
+            this.firstnameText.Location = new System.Drawing.Point(387, 191);
+            this.firstnameText.Name = "firstnameText";
+            this.firstnameText.Size = new System.Drawing.Size(371, 30);
+            this.firstnameText.TabIndex = 55;
             // 
             // labelNumSIRET
             // 
@@ -205,12 +205,12 @@ namespace StiveLourd.Pages
             this.labelNumSIRET.TabIndex = 54;
             this.labelNumSIRET.Text = "Prénom du client";
             // 
-            // textBoxNomCli
+            // lastnameText
             // 
-            this.textBoxNomCli.Location = new System.Drawing.Point(25, 191);
-            this.textBoxNomCli.Name = "textBoxNomCli";
-            this.textBoxNomCli.Size = new System.Drawing.Size(308, 30);
-            this.textBoxNomCli.TabIndex = 53;
+            this.lastnameText.Location = new System.Drawing.Point(25, 191);
+            this.lastnameText.Name = "lastnameText";
+            this.lastnameText.Size = new System.Drawing.Size(308, 30);
+            this.lastnameText.TabIndex = 53;
             // 
             // labelNomFour
             // 
@@ -228,7 +228,7 @@ namespace StiveLourd.Pages
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(252)))));
-            this.ClientSize = new System.Drawing.Size(954, 707);
+            this.ClientSize = new System.Drawing.Size(954, 715);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -246,19 +246,19 @@ namespace StiveLourd.Pages
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label TitrePage;
         private System.Windows.Forms.Button btn_add_client;
-        private System.Windows.Forms.TextBox textBoxEmailCli;
+        private System.Windows.Forms.TextBox emailText;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxVilleCli;
+        private System.Windows.Forms.TextBox cityText;
         private System.Windows.Forms.Label labelVilleFour;
-        private System.Windows.Forms.TextBox textBoxCPCli;
+        private System.Windows.Forms.TextBox cpText;
         private System.Windows.Forms.Label labelCPFour;
-        private System.Windows.Forms.TextBox textBoxAdresseCli;
+        private System.Windows.Forms.TextBox AdressText;
         private System.Windows.Forms.Label labelAdresseFour;
-        private System.Windows.Forms.TextBox textBoxNumTelCli;
+        private System.Windows.Forms.TextBox phonenumberText;
         private System.Windows.Forms.Label labelNumTelFour;
-        private System.Windows.Forms.TextBox textBoxPrenomCli;
+        private System.Windows.Forms.TextBox firstnameText;
         private System.Windows.Forms.Label labelNumSIRET;
-        private System.Windows.Forms.TextBox textBoxNomCli;
+        private System.Windows.Forms.TextBox lastnameText;
         private System.Windows.Forms.Label labelNomFour;
     }
 }

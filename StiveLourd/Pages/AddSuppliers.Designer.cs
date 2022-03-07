@@ -29,47 +29,53 @@ namespace StiveLourd.Pages
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddSuppliers));
             this.formFournisseur = new System.Windows.Forms.Panel();
             this.panel_search_ref_prod = new System.Windows.Forms.Panel();
             this.btn_new_ref_prod = new System.Windows.Forms.Button();
-            this.textBoxProdFour = new System.Windows.Forms.TextBox();
             this.labelProdFour = new System.Windows.Forms.Label();
-            this.textBoxVilleFour = new System.Windows.Forms.TextBox();
+            this.VilleText = new System.Windows.Forms.TextBox();
             this.labelVilleFour = new System.Windows.Forms.Label();
-            this.textBoxCPFour = new System.Windows.Forms.TextBox();
+            this.CpText = new System.Windows.Forms.TextBox();
             this.labelCPFour = new System.Windows.Forms.Label();
-            this.textBoxAdresseFour = new System.Windows.Forms.TextBox();
+            this.AdresseText = new System.Windows.Forms.TextBox();
             this.labelAdresseFour = new System.Windows.Forms.Label();
-            this.textBoxNumTelFour = new System.Windows.Forms.TextBox();
+            this.TelephoneText = new System.Windows.Forms.TextBox();
             this.labelNumTelFour = new System.Windows.Forms.Label();
-            this.textBoxNumSIRET = new System.Windows.Forms.TextBox();
+            this.SiretText = new System.Windows.Forms.TextBox();
             this.labelNumSIRET = new System.Windows.Forms.Label();
             this.btn_ajouter_fournisseur = new System.Windows.Forms.Button();
             this.TitrePage = new System.Windows.Forms.Label();
-            this.textBoxNomFour = new System.Windows.Forms.TextBox();
+            this.NomText = new System.Windows.Forms.TextBox();
             this.labelNomFour = new System.Windows.Forms.Label();
+            this.Produit = new System.Windows.Forms.ListBox();
+            this.stiveDBDataSet = new StiveLourd.StiveDBDataSet();
+            this.articleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.articleTableAdapter = new StiveLourd.StiveDBDataSetTableAdapters.ArticleTableAdapter();
             this.formFournisseur.SuspendLayout();
             this.panel_search_ref_prod.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stiveDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.articleBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // formFournisseur
             // 
             this.formFournisseur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(252)))));
             this.formFournisseur.Controls.Add(this.panel_search_ref_prod);
-            this.formFournisseur.Controls.Add(this.textBoxVilleFour);
+            this.formFournisseur.Controls.Add(this.VilleText);
             this.formFournisseur.Controls.Add(this.labelVilleFour);
-            this.formFournisseur.Controls.Add(this.textBoxCPFour);
+            this.formFournisseur.Controls.Add(this.CpText);
             this.formFournisseur.Controls.Add(this.labelCPFour);
-            this.formFournisseur.Controls.Add(this.textBoxAdresseFour);
+            this.formFournisseur.Controls.Add(this.AdresseText);
             this.formFournisseur.Controls.Add(this.labelAdresseFour);
-            this.formFournisseur.Controls.Add(this.textBoxNumTelFour);
+            this.formFournisseur.Controls.Add(this.TelephoneText);
             this.formFournisseur.Controls.Add(this.labelNumTelFour);
-            this.formFournisseur.Controls.Add(this.textBoxNumSIRET);
+            this.formFournisseur.Controls.Add(this.SiretText);
             this.formFournisseur.Controls.Add(this.labelNumSIRET);
             this.formFournisseur.Controls.Add(this.btn_ajouter_fournisseur);
             this.formFournisseur.Controls.Add(this.TitrePage);
-            this.formFournisseur.Controls.Add(this.textBoxNomFour);
+            this.formFournisseur.Controls.Add(this.NomText);
             this.formFournisseur.Controls.Add(this.labelNomFour);
             this.formFournisseur.Location = new System.Drawing.Point(0, 0);
             this.formFournisseur.Name = "formFournisseur";
@@ -78,8 +84,8 @@ namespace StiveLourd.Pages
             // 
             // panel_search_ref_prod
             // 
+            this.panel_search_ref_prod.Controls.Add(this.Produit);
             this.panel_search_ref_prod.Controls.Add(this.btn_new_ref_prod);
-            this.panel_search_ref_prod.Controls.Add(this.textBoxProdFour);
             this.panel_search_ref_prod.Controls.Add(this.labelProdFour);
             this.panel_search_ref_prod.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel_search_ref_prod.Location = new System.Drawing.Point(16, 357);
@@ -97,13 +103,6 @@ namespace StiveLourd.Pages
             this.btn_new_ref_prod.TabIndex = 41;
             this.btn_new_ref_prod.UseVisualStyleBackColor = false;
             // 
-            // textBoxProdFour
-            // 
-            this.textBoxProdFour.Location = new System.Drawing.Point(3, 28);
-            this.textBoxProdFour.Name = "textBoxProdFour";
-            this.textBoxProdFour.Size = new System.Drawing.Size(227, 30);
-            this.textBoxProdFour.TabIndex = 40;
-            // 
             // labelProdFour
             // 
             this.labelProdFour.AutoSize = true;
@@ -115,12 +114,12 @@ namespace StiveLourd.Pages
             this.labelProdFour.TabIndex = 39;
             this.labelProdFour.Text = "Produits Fournis (référence)";
             // 
-            // textBoxVilleFour
+            // VilleText
             // 
-            this.textBoxVilleFour.Location = new System.Drawing.Point(301, 286);
-            this.textBoxVilleFour.Name = "textBoxVilleFour";
-            this.textBoxVilleFour.Size = new System.Drawing.Size(585, 22);
-            this.textBoxVilleFour.TabIndex = 34;
+            this.VilleText.Location = new System.Drawing.Point(301, 286);
+            this.VilleText.Name = "VilleText";
+            this.VilleText.Size = new System.Drawing.Size(585, 22);
+            this.VilleText.TabIndex = 34;
             // 
             // labelVilleFour
             // 
@@ -133,12 +132,12 @@ namespace StiveLourd.Pages
             this.labelVilleFour.TabIndex = 33;
             this.labelVilleFour.Text = "Ville";
             // 
-            // textBoxCPFour
+            // CpText
             // 
-            this.textBoxCPFour.Location = new System.Drawing.Point(12, 286);
-            this.textBoxCPFour.Name = "textBoxCPFour";
-            this.textBoxCPFour.Size = new System.Drawing.Size(227, 22);
-            this.textBoxCPFour.TabIndex = 32;
+            this.CpText.Location = new System.Drawing.Point(12, 286);
+            this.CpText.Name = "CpText";
+            this.CpText.Size = new System.Drawing.Size(227, 22);
+            this.CpText.TabIndex = 32;
             // 
             // labelCPFour
             // 
@@ -151,12 +150,12 @@ namespace StiveLourd.Pages
             this.labelCPFour.TabIndex = 31;
             this.labelCPFour.Text = "Code Postal";
             // 
-            // textBoxAdresseFour
+            // AdresseText
             // 
-            this.textBoxAdresseFour.Location = new System.Drawing.Point(301, 212);
-            this.textBoxAdresseFour.Name = "textBoxAdresseFour";
-            this.textBoxAdresseFour.Size = new System.Drawing.Size(585, 22);
-            this.textBoxAdresseFour.TabIndex = 30;
+            this.AdresseText.Location = new System.Drawing.Point(301, 212);
+            this.AdresseText.Name = "AdresseText";
+            this.AdresseText.Size = new System.Drawing.Size(585, 22);
+            this.AdresseText.TabIndex = 30;
             // 
             // labelAdresseFour
             // 
@@ -169,12 +168,12 @@ namespace StiveLourd.Pages
             this.labelAdresseFour.TabIndex = 29;
             this.labelAdresseFour.Text = "Adresse";
             // 
-            // textBoxNumTelFour
+            // TelephoneText
             // 
-            this.textBoxNumTelFour.Location = new System.Drawing.Point(12, 212);
-            this.textBoxNumTelFour.Name = "textBoxNumTelFour";
-            this.textBoxNumTelFour.Size = new System.Drawing.Size(227, 22);
-            this.textBoxNumTelFour.TabIndex = 28;
+            this.TelephoneText.Location = new System.Drawing.Point(12, 212);
+            this.TelephoneText.Name = "TelephoneText";
+            this.TelephoneText.Size = new System.Drawing.Size(227, 22);
+            this.TelephoneText.TabIndex = 28;
             // 
             // labelNumTelFour
             // 
@@ -187,12 +186,12 @@ namespace StiveLourd.Pages
             this.labelNumTelFour.TabIndex = 27;
             this.labelNumTelFour.Text = "Numéro de Téléphone";
             // 
-            // textBoxNumSIRET
+            // SiretText
             // 
-            this.textBoxNumSIRET.Location = new System.Drawing.Point(441, 125);
-            this.textBoxNumSIRET.Name = "textBoxNumSIRET";
-            this.textBoxNumSIRET.Size = new System.Drawing.Size(445, 22);
-            this.textBoxNumSIRET.TabIndex = 26;
+            this.SiretText.Location = new System.Drawing.Point(441, 125);
+            this.SiretText.Name = "SiretText";
+            this.SiretText.Size = new System.Drawing.Size(445, 22);
+            this.SiretText.TabIndex = 26;
             // 
             // labelNumSIRET
             // 
@@ -230,12 +229,12 @@ namespace StiveLourd.Pages
             this.TitrePage.Text = "AJOUT NOUVEAU FOURNISSEUR";
             this.TitrePage.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // textBoxNomFour
+            // NomText
             // 
-            this.textBoxNomFour.Location = new System.Drawing.Point(12, 125);
-            this.textBoxNomFour.Name = "textBoxNomFour";
-            this.textBoxNomFour.Size = new System.Drawing.Size(382, 22);
-            this.textBoxNomFour.TabIndex = 2;
+            this.NomText.Location = new System.Drawing.Point(12, 125);
+            this.NomText.Name = "NomText";
+            this.NomText.Size = new System.Drawing.Size(382, 22);
+            this.NomText.TabIndex = 2;
             // 
             // labelNomFour
             // 
@@ -248,6 +247,32 @@ namespace StiveLourd.Pages
             this.labelNomFour.TabIndex = 1;
             this.labelNomFour.Text = "Nom fournisseur";
             // 
+            // Produit
+            // 
+            this.Produit.DataSource = this.articleBindingSource;
+            this.Produit.DisplayMember = "Ref";
+            this.Produit.FormattingEnabled = true;
+            this.Produit.ItemHeight = 23;
+            this.Produit.Location = new System.Drawing.Point(7, 29);
+            this.Produit.Name = "Produit";
+            this.Produit.Size = new System.Drawing.Size(216, 27);
+            this.Produit.TabIndex = 42;
+            this.Produit.ValueMember = "Id";
+            // 
+            // stiveDBDataSet
+            // 
+            this.stiveDBDataSet.DataSetName = "StiveDBDataSet";
+            this.stiveDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // articleBindingSource
+            // 
+            this.articleBindingSource.DataMember = "Article";
+            this.articleBindingSource.DataSource = this.stiveDBDataSet;
+            // 
+            // articleTableAdapter
+            // 
+            this.articleTableAdapter.ClearBeforeFill = true;
+            // 
             // AddSuppliers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -257,10 +282,13 @@ namespace StiveLourd.Pages
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddSuppliers";
             this.Text = "AddSuppliers";
+            this.Load += new System.EventHandler(this.AddSuppliers_Load);
             this.formFournisseur.ResumeLayout(false);
             this.formFournisseur.PerformLayout();
             this.panel_search_ref_prod.ResumeLayout(false);
             this.panel_search_ref_prod.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stiveDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.articleBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -270,21 +298,24 @@ namespace StiveLourd.Pages
         private System.Windows.Forms.Panel formFournisseur;
         private System.Windows.Forms.Button btn_ajouter_fournisseur;
         private System.Windows.Forms.Label TitrePage;
-        private System.Windows.Forms.TextBox textBoxNomFour;
+        private System.Windows.Forms.TextBox NomText;
         private System.Windows.Forms.Label labelNomFour;
-        private System.Windows.Forms.TextBox textBoxNumTelFour;
+        private System.Windows.Forms.TextBox TelephoneText;
         private System.Windows.Forms.Label labelNumTelFour;
-        private System.Windows.Forms.TextBox textBoxNumSIRET;
+        private System.Windows.Forms.TextBox SiretText;
         private System.Windows.Forms.Label labelNumSIRET;
-        private System.Windows.Forms.TextBox textBoxCPFour;
+        private System.Windows.Forms.TextBox CpText;
         private System.Windows.Forms.Label labelCPFour;
-        private System.Windows.Forms.TextBox textBoxAdresseFour;
+        private System.Windows.Forms.TextBox AdresseText;
         private System.Windows.Forms.Label labelAdresseFour;
-        private System.Windows.Forms.TextBox textBoxVilleFour;
+        private System.Windows.Forms.TextBox VilleText;
         private System.Windows.Forms.Label labelVilleFour;
         private System.Windows.Forms.Panel panel_search_ref_prod;
         private System.Windows.Forms.Button btn_new_ref_prod;
-        private System.Windows.Forms.TextBox textBoxProdFour;
         private System.Windows.Forms.Label labelProdFour;
+        private System.Windows.Forms.ListBox Produit;
+        private StiveDBDataSet stiveDBDataSet;
+        private System.Windows.Forms.BindingSource articleBindingSource;
+        private StiveDBDataSetTableAdapters.ArticleTableAdapter articleTableAdapter;
     }
 }

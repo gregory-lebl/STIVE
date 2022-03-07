@@ -18,5 +18,12 @@ namespace StiveLourd.Pages
             InitializeComponent();
             _main = main;
         }
+
+        private void AddSuppliers_Load(object sender, EventArgs e)
+        {
+            // TODO: cette ligne de code charge les données dans la table 'stiveDBDataSet.Article'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+            this.articleTableAdapter.Fill(this.stiveDBDataSet.Article);
+
+        }
     }
 }

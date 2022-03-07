@@ -40,12 +40,14 @@ namespace StiveLourd.Pages
             this.labelCepage = new System.Windows.Forms.Label();
             this.listBoxCépage = new System.Windows.Forms.ListBox();
             this.cepageBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cepageBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.labelAnnee = new System.Windows.Forms.Label();
             this.listBoxAnnee = new System.Windows.Forms.ListBox();
             this.anneeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labelVolumeUnitaire = new System.Windows.Forms.Label();
             this.listBoxVolumeUnitaire = new System.Windows.Forms.ListBox();
             this.capacityBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.capacityBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.labelFamille = new System.Windows.Forms.Label();
             this.listBoxFamille = new System.Windows.Forms.ListBox();
             this.familyBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -67,17 +69,15 @@ namespace StiveLourd.Pages
             this.cepageTableAdapter = new StiveLourd.StiveDBDataSetTableAdapters.CepageTableAdapter();
             this.familyTableAdapter = new StiveLourd.StiveDBDataSetTableAdapters.FamilyTableAdapter();
             this.supplierTableAdapter = new StiveLourd.StiveDBDataSetTableAdapters.SupplierTableAdapter();
-            this.capacityBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.cepageBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.formProduits.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stiveDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cepageBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cepageBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.anneeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.capacityBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.familyBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.capacityBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cepageBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.familyBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // formProduits
@@ -202,6 +202,11 @@ namespace StiveLourd.Pages
             this.cepageBindingSource.DataMember = "Cepage";
             this.cepageBindingSource.DataSource = this.stiveDBDataSet;
             // 
+            // cepageBindingSource1
+            // 
+            this.cepageBindingSource1.DataMember = "Cepage";
+            this.cepageBindingSource1.DataSource = this.stiveDBDataSet;
+            // 
             // labelAnnee
             // 
             this.labelAnnee.AutoSize = true;
@@ -246,7 +251,7 @@ namespace StiveLourd.Pages
             // listBoxVolumeUnitaire
             // 
             this.listBoxVolumeUnitaire.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.capacityBindingSource, "BottleCapacity", true));
-            this.listBoxVolumeUnitaire.DataSource = this.capacityBindingSource1;
+            this.listBoxVolumeUnitaire.DataSource = this.capacityBindingSource;
             this.listBoxVolumeUnitaire.DisplayMember = "BottleCapacity";
             this.listBoxVolumeUnitaire.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxVolumeUnitaire.FormattingEnabled = true;
@@ -261,6 +266,11 @@ namespace StiveLourd.Pages
             // 
             this.capacityBindingSource.DataMember = "Capacity";
             this.capacityBindingSource.DataSource = this.stiveDBDataSet;
+            // 
+            // capacityBindingSource1
+            // 
+            this.capacityBindingSource1.DataMember = "Capacity";
+            this.capacityBindingSource1.DataSource = this.stiveDBDataSet;
             // 
             // labelFamille
             // 
@@ -445,16 +455,6 @@ namespace StiveLourd.Pages
             // 
             this.supplierTableAdapter.ClearBeforeFill = true;
             // 
-            // capacityBindingSource1
-            // 
-            this.capacityBindingSource1.DataMember = "Capacity";
-            this.capacityBindingSource1.DataSource = this.stiveDBDataSet;
-            // 
-            // cepageBindingSource1
-            // 
-            this.cepageBindingSource1.DataMember = "Cepage";
-            this.cepageBindingSource1.DataSource = this.stiveDBDataSet;
-            // 
             // AddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -471,11 +471,11 @@ namespace StiveLourd.Pages
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stiveDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cepageBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cepageBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.anneeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.capacityBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.familyBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.capacityBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cepageBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.familyBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
