@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StiveLourd.Pages//StiveLourd.Model
 {
-    
+
     public class Article
     {
         public string id { get; set; }
@@ -25,36 +27,37 @@ namespace StiveLourd.Pages//StiveLourd.Model
         public string description { get; set; }
         public double unitPrice { get; set; }
         public string picture { get; set; }
+        public string StockId { get; set; }
 
-        /*public Article(string id, string yearId, int? year, string capacityId, string capacity, string cepageId, string cepage, string familyId, string family, string supplierId, string supplier, string name, string @ref, string description, double unitPrice)
-        {
-            Id = id;
-            YearId = yearId;
-            Year = year;
-            CapacityId = capacityId;
-            Capacity = capacity;
-            CepageId = cepageId;
-            Cepage = cepage;
-            FamilyId = familyId;
-            Family = family;
-            SupplierId = supplierId;
-            Supplier = supplier;
-            Name = name;
-            Ref = @ref;
-            Description = description;
-            UnitPrice = unitPrice;
-        }*/
+        public string stock { get; set; }
 
-        public Article()
+
+
+
+        public Article() { }
+        public bool PostNewProduct()
         {
+            var client = new RestClient("https://localhost:44395");
+            var request = new RestRequest("/article​/new", Method.Post);
+
+            string json = JsonConvert.SerializeObject(this);
+            request.AddParameter("application/json; charset=utf-8", json, ParameterType.RequestBody);
+            request.AddJsonBody(json);
+            request.RequestFormat = DataFormat.Json;
+            try
+            {
+                client.Execute(request);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+
+
         }
 
-        public string getMonTest()
-        {
-           String monText = "Bonne nouvelle ça fonctionne !";
-            return monText;
-        }
+
     }
-
-
 }

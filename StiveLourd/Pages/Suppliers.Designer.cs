@@ -33,13 +33,6 @@ namespace StiveLourd.Pages
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Suppliers));
             this.navContainer = new System.Windows.Forms.Panel();
             this.supplierDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ShowSupplier = new System.Windows.Forms.DataGridViewButtonColumn();
             this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.stiveDBDataSet = new StiveLourd.StiveDBDataSet();
             this.button1 = new System.Windows.Forms.Button();
@@ -108,18 +101,8 @@ namespace StiveLourd.Pages
             // 
             this.supplierDataGridView.AllowUserToAddRows = false;
             this.supplierDataGridView.AllowUserToDeleteRows = false;
-            this.supplierDataGridView.AutoGenerateColumns = false;
             this.supplierDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(195)))), ((int)(((byte)(198)))));
             this.supplierDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.supplierDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.ShowSupplier});
-            this.supplierDataGridView.DataSource = this.supplierBindingSource;
             this.supplierDataGridView.Location = new System.Drawing.Point(42, 346);
             this.supplierDataGridView.Name = "supplierDataGridView";
             this.supplierDataGridView.ReadOnly = true;
@@ -128,69 +111,6 @@ namespace StiveLourd.Pages
             this.supplierDataGridView.Size = new System.Drawing.Size(872, 349);
             this.supplierDataGridView.TabIndex = 68;
             this.supplierDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.supplierDataGridView_CellContentClick);
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Nom";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Adress";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Adresse";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Cp";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Code postal";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "City";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Ville";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Siret";
-            this.dataGridViewTextBoxColumn6.HeaderText = "N° Siret";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "PhoneNumber";
-            this.dataGridViewTextBoxColumn7.HeaderText = "N° de téléphone";
-            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 125;
-            // 
-            // ShowSupplier
-            // 
-            this.ShowSupplier.HeaderText = "";
-            this.ShowSupplier.MinimumWidth = 6;
-            this.ShowSupplier.Name = "ShowSupplier";
-            this.ShowSupplier.ReadOnly = true;
-            this.ShowSupplier.Text = "Voir le Fournisseur";
-            this.ShowSupplier.Width = 125;
             // 
             // supplierBindingSource
             // 
@@ -338,7 +258,7 @@ namespace StiveLourd.Pages
             this.supplierBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.supplierBindingNavigator.Name = "supplierBindingNavigator";
             this.supplierBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.supplierBindingNavigator.Size = new System.Drawing.Size(954, 31);
+            this.supplierBindingNavigator.Size = new System.Drawing.Size(954, 27);
             this.supplierBindingNavigator.TabIndex = 10;
             this.supplierBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -348,13 +268,13 @@ namespace StiveLourd.Pages
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorAddNewItem.Text = "Ajouter nouveau";
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(48, 28);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(48, 24);
             this.bindingNavigatorCountItem.Text = "de {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Nombre total d\'éléments";
             // 
@@ -364,7 +284,7 @@ namespace StiveLourd.Pages
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorDeleteItem.Text = "Supprimer";
             // 
             // bindingNavigatorMoveFirstItem
@@ -373,7 +293,7 @@ namespace StiveLourd.Pages
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveFirstItem.Text = "Placer en premier";
             // 
             // bindingNavigatorMovePreviousItem
@@ -382,13 +302,13 @@ namespace StiveLourd.Pages
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMovePreviousItem.Text = "Déplacer vers le haut";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -403,7 +323,7 @@ namespace StiveLourd.Pages
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -411,7 +331,7 @@ namespace StiveLourd.Pages
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveNextItem.Text = "Déplacer vers le bas";
             // 
             // bindingNavigatorMoveLastItem
@@ -420,20 +340,20 @@ namespace StiveLourd.Pages
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveLastItem.Text = "Placer en dernier";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
             // supplierBindingNavigatorSaveItem
             // 
             this.supplierBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.supplierBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("supplierBindingNavigatorSaveItem.Image")));
             this.supplierBindingNavigatorSaveItem.Name = "supplierBindingNavigatorSaveItem";
-            this.supplierBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 28);
+            this.supplierBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 24);
             this.supplierBindingNavigatorSaveItem.Text = "Enregistrer les données";
             this.supplierBindingNavigatorSaveItem.Click += new System.EventHandler(this.supplierBindingNavigatorSaveItem_Click);
             // 
@@ -444,29 +364,29 @@ namespace StiveLourd.Pages
             this.cpToolStripLabel,
             this.cpToolStripTextBox,
             this.fillByToolStripButton});
-            this.fillByToolStrip.Location = new System.Drawing.Point(0, 31);
+            this.fillByToolStrip.Location = new System.Drawing.Point(0, 27);
             this.fillByToolStrip.Name = "fillByToolStrip";
-            this.fillByToolStrip.Size = new System.Drawing.Size(954, 31);
+            this.fillByToolStrip.Size = new System.Drawing.Size(954, 27);
             this.fillByToolStrip.TabIndex = 11;
             this.fillByToolStrip.Text = "fillByToolStrip";
             // 
             // cpToolStripLabel
             // 
             this.cpToolStripLabel.Name = "cpToolStripLabel";
-            this.cpToolStripLabel.Size = new System.Drawing.Size(30, 28);
+            this.cpToolStripLabel.Size = new System.Drawing.Size(30, 24);
             this.cpToolStripLabel.Text = "Cp:";
             // 
             // cpToolStripTextBox
             // 
             this.cpToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.cpToolStripTextBox.Name = "cpToolStripTextBox";
-            this.cpToolStripTextBox.Size = new System.Drawing.Size(100, 31);
+            this.cpToolStripTextBox.Size = new System.Drawing.Size(100, 27);
             // 
             // fillByToolStripButton
             // 
             this.fillByToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.fillByToolStripButton.Name = "fillByToolStripButton";
-            this.fillByToolStripButton.Size = new System.Drawing.Size(48, 28);
+            this.fillByToolStripButton.Size = new System.Drawing.Size(48, 24);
             this.fillByToolStripButton.Text = "FillBy";
             this.fillByToolStripButton.Click += new System.EventHandler(this.fillByToolStripButton_Click);
             // 
@@ -555,12 +475,5 @@ namespace StiveLourd.Pages
         private System.Windows.Forms.ToolStripLabel cpToolStripLabel;
         private System.Windows.Forms.ToolStripTextBox cpToolStripTextBox;
         private System.Windows.Forms.ToolStripButton fillByToolStripButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewButtonColumn ShowSupplier;
     }
 }

@@ -42,12 +42,6 @@ namespace StiveLourd.Pages
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.listBoxFamille = new System.Windows.Forms.ListBox();
             this.purchaseOrderDataGridView = new System.Windows.Forms.DataGridView();
-            this.NumCommande = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.purchaseOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.TitrePage = new System.Windows.Forms.Label();
             this.purchaseOrderTableAdapter = new StiveLourd.StiveDBDataSetTableAdapters.PurchaseOrderTableAdapter();
@@ -167,8 +161,6 @@ namespace StiveLourd.Pages
             // listBoxFamille
             // 
             this.listBoxFamille.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.clientOrderBindingSource, "StatusId", true));
-            this.listBoxFamille.DataSource = this.clientOrderBindingSource;
-            this.listBoxFamille.DisplayMember = "StatusId";
             this.listBoxFamille.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxFamille.FormattingEnabled = true;
             this.listBoxFamille.ItemHeight = 23;
@@ -176,7 +168,6 @@ namespace StiveLourd.Pages
             this.listBoxFamille.Name = "listBoxFamille";
             this.listBoxFamille.Size = new System.Drawing.Size(382, 27);
             this.listBoxFamille.TabIndex = 59;
-            this.listBoxFamille.ValueMember = "StatusId";
             // 
             // purchaseOrderDataGridView
             // 
@@ -185,13 +176,6 @@ namespace StiveLourd.Pages
             this.purchaseOrderDataGridView.AutoGenerateColumns = false;
             this.purchaseOrderDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(195)))), ((int)(((byte)(198)))));
             this.purchaseOrderDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.purchaseOrderDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NumCommande,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
             this.purchaseOrderDataGridView.DataSource = this.purchaseOrderBindingSource;
             this.purchaseOrderDataGridView.Location = new System.Drawing.Point(12, 311);
             this.purchaseOrderDataGridView.Name = "purchaseOrderDataGridView";
@@ -200,59 +184,6 @@ namespace StiveLourd.Pages
             this.purchaseOrderDataGridView.RowTemplate.Height = 24;
             this.purchaseOrderDataGridView.Size = new System.Drawing.Size(919, 347);
             this.purchaseOrderDataGridView.TabIndex = 55;
-            // 
-            // NumCommande
-            // 
-            this.NumCommande.HeaderText = "N° de commande";
-            this.NumCommande.MinimumWidth = 6;
-            this.NumCommande.Name = "NumCommande";
-            this.NumCommande.ReadOnly = true;
-            this.NumCommande.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "SupplierId";
-            this.dataGridViewTextBoxColumn6.HeaderText = "SupplierId";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "ArticleId";
-            this.dataGridViewTextBoxColumn5.HeaderText = "ArticleId";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Quantity";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Quantité";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "TTCPrice";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Prix TTC";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "HTPrice";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Prix HT";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 125;
             // 
             // purchaseOrderBindingSource
             // 
@@ -336,12 +267,6 @@ namespace StiveLourd.Pages
         private StiveDBDataSetTableAdapters.PurchaseOrderTableAdapter purchaseOrderTableAdapter;
         private StiveDBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView purchaseOrderDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NumCommande;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox2;

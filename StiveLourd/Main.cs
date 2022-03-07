@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Http;
 using System.Data.SqlClient;
+using StiveLourd.Data.Model;
 
 namespace StiveLourd
 {
@@ -104,7 +105,7 @@ namespace StiveLourd
                         btn_active_fournisseurs.Visible=false;
                         btn_active_commandes.Visible=false;
                         btn_active_clients.Visible=false;
-                    frm= new AddProduct();
+                    frm= new AddProduct(this);
                     break;
                 case "ADD_SUPPLIERS":
                     // BTN Active
@@ -154,7 +155,17 @@ namespace StiveLourd
                     btn_active_produits.Visible=false;
                     btn_active_commandes.Visible=false;
                     btn_active_clients.Visible=false;
-                    frm = new AddSuppliers(this);
+                    frm = new DetailsSupplier(this);
+                    break;
+                case "DETAILS_CUSTOMER":
+                    // BTN Active
+                    btn_active_produits.Visible=true;
+                    //BTN INACTIVE
+                    btn_active_accueil.Visible=false;
+                    btn_active_fournisseurs.Visible=false;
+                    btn_active_commandes.Visible=false;
+                    btn_active_clients.Visible=false;
+                    frm= new DetailsCustomer((Client)arg1);
                     break;
                 default:
                     return;

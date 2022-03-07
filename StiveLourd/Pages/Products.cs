@@ -15,9 +15,6 @@ namespace StiveLourd.Pages
     {
         private Main _main;
         private const string BASE_URL = "https://localhost:44395";
-        private SqlDataAdapter dataAdapter = new SqlDataAdapter();
-        private DataSet ProductsDataSet = new DataSet();
-        private BindingSource bindingTest = new BindingSource();
 
         Article[] articles;
         public Products(Main main)
@@ -90,20 +87,7 @@ namespace StiveLourd.Pages
             //articleDataGridView.DataSource = dt;
 
         }
-        /*private void getDataArticle()
-        {
-            HttpClient clint = new HttpClient();
-            clint.BaseAddress = new Uri("https://localhost:44395/");
-            HttpResponseMessage response = clint.GetAsync("ArticleList").Result;
-
-            var emp = response.Content.ReadAsAsync<IEnumerable<Article>>().Result;
-        }*/
-
-        /*private void getAnnee()
-        {
-            var annee = new Annee();
-            annee = Annee.GetAll();
-        }*/
+        
 
         //USELESS
         private void button1_Click(object sender, EventArgs e) { _main.NavigateTo("DETAILS_PRODUCT"); }
@@ -190,10 +174,6 @@ namespace StiveLourd.Pages
             }
         }
 
-
-
-
-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -206,11 +186,7 @@ namespace StiveLourd.Pages
 
         public async void BindData(string data)
         {
-
             articles = JsonConvert.DeserializeObject<Article[]>(data);
-
-
-
             DataTable table = new DataTable();
             table.Columns.Add("Référence", typeof(string));
             table.Columns.Add("Nom", typeof(string));
@@ -249,7 +225,6 @@ namespace StiveLourd.Pages
 
         private void articleDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
             if (e.RowIndex != -1)
             {
                 if(articles != null)
@@ -259,8 +234,6 @@ namespace StiveLourd.Pages
                         _main.NavigateTo("DETAILS_PRODUCT", articles[e.RowIndex]);
                     }
                 }
-                //MessageBox.Show(articleDataGridView.CurrentCell.Value.ToString());
-                
             }
         }
     }

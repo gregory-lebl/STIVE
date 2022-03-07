@@ -58,7 +58,7 @@ namespace StiveLourd.Pages
             this.Connexion.Controls.Add(this.textBoxPassword);
             this.Connexion.Controls.Add(this.labelPassword);
             this.Connexion.Controls.Add(this.btn_connexion);
-            this.Connexion.Location = new System.Drawing.Point(286, 236);
+            this.Connexion.Location = new System.Drawing.Point(289, 240);
             this.Connexion.Name = "Connexion";
             this.Connexion.Size = new System.Drawing.Size(396, 213);
             this.Connexion.TabIndex = 7;

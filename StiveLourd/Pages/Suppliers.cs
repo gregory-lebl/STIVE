@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using StiveLourd.Data.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,10 +16,17 @@ namespace StiveLourd.Pages
     public partial class Suppliers : Form
     {
         private Main _main;
+        private const string BASE_URL = "https://localhost:44395";
+
+        Fournisseur[] fournisseurs;
         public Suppliers(Main main)
         {
             InitializeComponent();
             _main = main;
+            Task<string> data = GetAllSuppliers();
+            supplierDataGridView.AutoGenerateColumns=true;
+
+            data.ContinueWith(delegate { BindData(data.Result); });
         }
 
         private void btn_accueil_Click(object sender, EventArgs e)
@@ -99,6 +109,44 @@ namespace StiveLourd.Pages
         private void supplierDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             _main.NavigateTo("DETAILS_SUPPLIER");
+        }
+
+        public async Task<string> GetAllSuppliers()
+        {
+            var data = string.Empty;
+            string endpoint = BASE_URL + "/api/supplier";
+            HttpClient client = new HttpClient();
+            var response = await client.GetAsync(endpoint);
+
+            if (response.IsSuccessStatusCode)
+            {
+                data = await response.Content.ReadAsStringAsync();
+            }
+            return data;
+        }
+        public async void BindData(string data)
+        {
+            fournisseurs = JsonConvert.DeserializeObject<Fournisseur[]>(data);
+            DataTable table = new DataTable();
+            table.Columns.Add("Nom", typeof(string));
+            table.Columns.Add("Adresse", typeof(string));
+            table.Columns.Add("Cp", typeof(string));
+            table.Columns.Add("Ville", typeof(string));
+            table.Columns.Add("N° de téléphone", typeof(string));
+            table.Columns.Add("N° de SIRET", typeof(string));
+
+
+            foreach (var fournisseur in fournisseurs)
+            {
+                table.Rows.Add(fournisseur.Name, fournisseur.Address, fournisseur.Cp, fournisseur.City, fournisseur.PhoneNumber, fournisseur.Siret);
+            }
+            supplierDataGridView.Invoke((MethodInvoker)delegate
+            {
+
+                supplierDataGridView.AutoGenerateColumns = true;
+                supplierDataGridView.DataSource = null;
+                supplierDataGridView.DataSource = table;
+            });
         }
     }
 }
