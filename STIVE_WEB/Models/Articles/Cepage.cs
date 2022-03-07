@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace STIVE_API.Data.Models.Articles
+namespace STIVE_WEB.Models.Articles
 {
     public class Cepage
     {
-        
+
         [Key] public Guid CepageId { get; set; }
         public string Name { get; set; }
         public string Origin { get; set; }
