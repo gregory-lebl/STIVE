@@ -34,7 +34,7 @@ namespace STIVE_API.Controllers
             using (var db = new StiveDbContext())
             {
 
-                var query = db.Set<Article>().Include(o => o.Cepage).Include(o => o.Cepage).Include(i => i.Family).Include(o => o.Annee).Include(o => o.Capacity);
+                var query = db.Set<Article>().Include(o => o.Cepage).Include(o => o.Supplier).Include(i => i.Family).Include(o => o.Annee).Include(o => o.Capacity);
 
                 var singleArticle = query.Single(o => o.Id == id);
                 return singleArticle;
