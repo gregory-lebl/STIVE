@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Votre panier";
+    @model List<STIVE_WEB.Models.Articles.Article>;
+    @using Microsoft.AspNetCore.Http;
+}
+
+<partial name="/Views/Shared/_Header.cshtml" />
+<section id="section-checkout">
+    @if (string.IsNullOrEmpty(@Context.Session.GetString("Cart")))
+    {
+        <div class="empty-checkout">
+            <p style="color:red;">Votre panier est vide</p>
+        </div>
+    }
+    else
+    {
+        <h1>Votre panier</h1>
+        <br />
+        <div class="section-checkout-container">
+            <form asp-controller="Cart" asp-action="ConfirmOrder" method="post" id="order-form" style="width: 70%;">
+                <div class="checkout-list-item">
+                    @foreach (var item in Model)
+                    {
+                        <div class="checkout-item checkout-item-@item.Id">
+                            <img src="https://static.specsonline.com/wp-content/themes/Specs%20Theme/images/default_wine.png" alt="Image de la bouteille" class="checkout-item-img" />
+                            <div class="checkout-item-product-info">
+                                <strong class="checkout-item-product-info-name">@item.Name</strong>
+                                <span class="checkout-item-product-info-year">Année : @item.Annee.Number</span>
+                                <span class="checkout-item-product-info-capacity">Contenance : @item.Capacity.BottleCapacity cl</span>
+                                <strong class="checkout-item-product-info-price">Prix unitaire : <span class="checkout-item-product-info-price-value">@item.UnitPrice.ToString("N2")</span> €</strong>
+                            </div>
+                            <div class="checkout-item-product-quantity">
+                                <input type="number" name="orderQuantity" class="checkout-item-product-quantity-input" data-itemId="@item.Id" min="1" value="1"/>
+                                <strong class="checkout-item-product-quantity-price"><span class="checkout-item-product-quantity-price-value">@item.UnitPrice.ToString("N2")</span> €</strong>
+                            </div>
+                            <div class="checkout-item-product-delete">
+                                <a asp-controller="Cart" asp-action="DeleteItemFromCheckout" asp-route-id="@item.Id">
+                                    <i class="fas fa-trash-alt fa-lg fa-2x" style="color: #711628;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <input type="hidden" name="order" id="order" value="" />
+            </form>
+            <div class="checkout-price">
+                <p class="checkout-price-total-product"></p>
+                <p class="checkout-price-delivery">Livraison Gratuit</p>
+                <strong class="checkout-price-total"></strong>
+                <a href="#" class="btn checkout-price-pay" id="btn-order">Payer</a>
+            </div>
+        </div>
+    }
+</section>

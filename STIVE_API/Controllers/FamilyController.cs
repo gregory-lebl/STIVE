@@ -5,73 +5,71 @@ using STIVE_API.Data.Models.Articles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using System.Threading.Tasks;
 
 namespace STIVE_API.Controllers
 {
-    [Route("api/cepage")]
+    [Route("api/family")]
     [ApiController]
-    public class CepageController : ControllerBase
+    public class FamilyController : ControllerBase
     {
-
         [HttpGet]
-        public IEnumerable<Cepage> Get()
+        public IEnumerable<Family> Get()
         {
-            using(var db = new StiveDbContext())
+            using (var db = new StiveDbContext())
             {
-                var cepages = db.Cepage.ToList();
-                return cepages;
+                var families = db.Family.ToList();
+                return families;
             }
         }
 
         [HttpGet("{id}")]
-        public Cepage Get(Guid id)
+        public Family Get(Guid id)
         {
 
-            using(var db = new StiveDbContext())
+            using (var db = new StiveDbContext())
             {
-                var cepages = db.Cepage.Single(o => o.CepageId == id);
-                return cepages;
+                var family = db.Family.Single(o => o.FamilyId == id);
+                return family;
             }
 
         }
 
         [HttpPost("new")]
-        public Cepage Post(Cepage cepage)
+        public Family Post(Family family)
         {
             using (var db = new StiveDbContext())
             {
-                db.Cepage.Add(cepage);
+                db.Family.Add(family);
                 try
                 {
                     db.SaveChanges();
-                    return cepage;
+                    return family;
                 }
                 catch (System.Exception)
                 {
                     throw;
                 }
             }
-            
+
         }
 
         [HttpPut("{id}")]
-        public ActionResult Put(Cepage elem)
+        public ActionResult Put(Family elem)
         {
             try
             {
                 using (var db = new StiveDbContext())
                 {
-                    var cepage = db.Cepage.Single(o => o.CepageId == elem.CepageId);
-                    if(cepage != null)
+                    var family = db.Family.Single(o => o.FamilyId == elem.FamilyId);
+                    if (family != null)
                     {
-                        cepage.Name = elem.Name;
-                        cepage.Origin = elem.Origin;
+                        family.Name = elem.Name;
 
                         db.SaveChanges();
                         return Ok("Les informations ont bien été changées");
                     }
-                    return NotFound("Aucun Cépage correspondant n'a été trouvé. Veuillez Réessayer.");
+                    return NotFound("Aucune famille correspondante n'a été trouvé. Veuillez Réessayer.");
                 }
             }
             catch (System.Exception)
@@ -87,9 +85,9 @@ namespace STIVE_API.Controllers
             {
                 try
                 {
-                  
+
                     var family = db.Family.Single(o => o.FamilyId == id);
-                    if(family != null)
+                    if (family != null)
                     {
                         db.Family.Remove(family);
                         db.SaveChanges();
@@ -97,7 +95,7 @@ namespace STIVE_API.Controllers
 
                     }
                     return NotFound("Aucune famille correspondante n'a été trouvé. Veuillez réessayer.");
-                
+
                 }
                 catch (System.Exception)
                 {
@@ -106,6 +104,6 @@ namespace STIVE_API.Controllers
             }
         }
 
-    }
 
+    }
 }

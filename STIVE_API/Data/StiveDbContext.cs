@@ -89,21 +89,25 @@ namespace STIVE_API.Data
             var supplier = SeedSupplier();
             modelBuilder.Entity<Supplier>().HasData(supplier);
 
+            var stock = SeedStock();
+            modelBuilder.Entity<Stock>().HasData(stock);
+
             modelBuilder.Entity<Article>().HasOne<Annee>( a => a.Annee ).WithMany().OnDelete(DeleteBehavior.SetNull);
             modelBuilder.Entity<Article>().HasOne<Capacity>(c => c.Capacity).WithMany().OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<Article>().HasOne<Cepage>(c => c.Cepage).WithMany().OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<Article>().HasOne<Family>(f => f.Family ).WithMany().OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<Article>().HasOne<Supplier>(s => s.Supplier).WithMany().OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Article>().HasOne<Stock>(s => s.Stock).WithMany().OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Article>()
-                .HasData(new Article("Bouteille de vin", "152DER147DFM9", "Description à venir", 5.60, annees.First().AnneeId, capacity.First().CapacityId, cepage.First().CepageId, families.First().FamilyId, supplier.First().SupplierId));
+                .HasData(new Article("Bouteille de vin", "152DER147DFM9", "Description à venir", 5.60, annees.First().AnneeId, capacity.First().CapacityId, cepage.First().CepageId, families.First().FamilyId, supplier.First().SupplierId, stock.First().StockId));
             modelBuilder.Entity<Article>()
-               .HasData(new Article("Bouteille de bordeau", "452SER197DRP9", "Description à venir", 3.50, annees.Last().AnneeId, capacity.Last().CapacityId, cepage.Last().CepageId, families.Last().FamilyId, supplier.First().SupplierId));
+               .HasData(new Article("Bouteille de bordeau", "452SER197DRP9", "Description à venir", 3.50, annees.Last().AnneeId, capacity.Last().CapacityId, cepage.Last().CepageId, families.Last().FamilyId, supplier.First().SupplierId, stock.Last().StockId));
             modelBuilder.Entity<Stock>();
             modelBuilder.Entity<ClientOrder>()
                 .HasData(
-                new ClientOrder("TEST123456", customer.First().Id, status.First().StatusId),
-                new ClientOrder("TEST234567", customer.Last().Id, status.First().StatusId)
+                new ClientOrder("TEST123456", 25, 25, customer.First().Id, status.First().StatusId),
+                new ClientOrder("TEST234567",20,20,  customer.Last().Id, status.First().StatusId)
                 );
             modelBuilder.Entity<PurchaseOrder>();
             modelBuilder.Entity<ArticleRow>();
@@ -209,6 +213,18 @@ namespace STIVE_API.Data
             {
                 new Supplier("La Centrale des Vins", "14 Rue Louis Ruquier", "76300", "Sotteville-lès-Rouen", "38862771300067", "02 35 73 03 93")
             };
+        }
+
+        private static List<Stock> SeedStock()
+        {
+
+            return new List<Stock>
+            {
+                new Stock(10, 5, 15),
+                new Stock(2, 1, 5),
+                new Stock(50,20,100),
+            };
+
         }
 
 
