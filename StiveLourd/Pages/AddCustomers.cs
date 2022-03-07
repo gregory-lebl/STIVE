@@ -24,27 +24,6 @@ namespace StiveLourd.Pages
             _main = main;
         }
 
-        public bool PostNewCustomer2()
-        {
-            var client = new RestClient(BASE_URL);
-            var request = new RestRequest("/customer​/new", Method.Post);
-
-            string json = JsonConvert.SerializeObject(this);
-            request.AddParameter("application/json; charset=utf-8", json, ParameterType.RequestBody);
-            request.AddJsonBody(json);
-            request.RequestFormat = DataFormat.Json;
-            try
-            {
-                client.Execute(request);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return false;
-            }
-        }
-
         private void btn_add_client_Click(object sender, EventArgs e)
         {
             //OpenFileDialog openFileDialog = new OpenFileDialog();

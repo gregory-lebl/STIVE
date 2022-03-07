@@ -89,7 +89,7 @@ namespace StiveLourd.Pages
             this.btn_add_client.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(195)))), ((int)(((byte)(198)))));
             this.btn_add_client.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add_client.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(22)))), ((int)(((byte)(40)))));
-            this.btn_add_client.Location = new System.Drawing.Point(467, 523);
+            this.btn_add_client.Location = new System.Drawing.Point(447, 436);
             this.btn_add_client.Name = "btn_add_client";
             this.btn_add_client.Size = new System.Drawing.Size(111, 70);
             this.btn_add_client.TabIndex = 66;
