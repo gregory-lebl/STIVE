@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using STIVE_WEB.Models.Articles;
 using STIVE_WEB.Models.Orders;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -62,23 +63,16 @@ namespace STIVE_WEB.Controllers
         /// <summary>
         /// Créer une nouvelle commande en base de données
         /// </summary>
-        public void ConfirmOrder(string jsonOrder)
+        public RedirectResult ConfirmOrderAsync(string order)
         {
+            var orderJson = order;
+            string customerId = HttpContext.Session.GetString("CustomerId");
 
-            List<TestOrder> orderList = JsonConvert.DeserializeObject<List<TestOrder>>(jsonOrder);
+            List<TestOrder> orderList = JsonConvert.DeserializeObject<List<TestOrder>>(orderJson);
 
-            string endpoint = BaseUrl + "";
+            string endpoint = BaseUrl + "api/clientOrder/new";
 
-            foreach (TestOrder order in orderList)
-            {
-                
-            }
-
-            //List<TestOrder> toto = JsonSerializer.Deserialize<List<TestOrder>>();
-
-            var session = HttpContext.Session.GetString("customerId");
-            
-
+            return null;
         }
 
 

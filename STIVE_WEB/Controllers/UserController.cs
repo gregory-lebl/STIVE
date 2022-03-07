@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using STIVE_WEB.Models.Users;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -65,11 +66,12 @@ namespace STIVE_WEB.Controllers
 
             List<Customer> customers = await response.Content.ReadAsAsync<List<Customer>>();
 
+
             if (customers.Find(o => o.Email == email) != null)
             {
-                Customer customer = customers.Find(o => o.Email == email);
-                HttpContext.Session.SetString("customerId", customer.Id);
+                Customer customer = customers.Single(o => o.Email == email);
 
+                HttpContext.Session.SetString("CustomerId", customer.Id.ToString());
             }
             else
             {

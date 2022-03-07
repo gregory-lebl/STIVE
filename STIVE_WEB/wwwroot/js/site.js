@@ -28,7 +28,7 @@
 
                 json = {
                     "articleId": articleId,
-                    "unitPrice": unitPrice,
+                    "unitPrice": unitPrice.replace(",", "."),
                     "quantity": quantity
                 }
 

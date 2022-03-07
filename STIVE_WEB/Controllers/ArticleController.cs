@@ -41,6 +41,7 @@ namespace STIVE_WEB.Controllers
             {
                 //Création de la session "Cart" contenant l'id des articles ajoutés au panier
                 HttpContext.Session.SetString("Cart", id);
+                HttpContext.Session.SetString("toto", id);
             }
             else
             {
@@ -49,7 +50,7 @@ namespace STIVE_WEB.Controllers
                 var currentId = id;
                 var newSessionValue = currentSessionValue + "," + id; //Récupération de l'ancienne string de la session et ajout du nouvelle id dans la session
 
-                HttpContext.Session.Clear(); //Je supprime la session actuelle
+                
                 HttpContext.Session.SetString("Cart", newSessionValue); //Je recrée nouvelle session contenant la nouvelle string d'id
             }
 
