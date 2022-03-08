@@ -60,5 +60,10 @@ namespace StiveLourd.Pages
         {
             _main.NavigateTo("ADD_COMM_SUPPLIERS");
         }
+
+        private void btn_add_user_Click(object sender, EventArgs e)
+        {
+            _main.NavigateTo("USERS");
+        }
     }
 }

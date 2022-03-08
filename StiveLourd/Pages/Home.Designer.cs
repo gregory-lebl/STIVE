@@ -63,8 +63,9 @@ namespace StiveLourd.Pages
             this.btn_add_user.Name = "btn_add_user";
             this.btn_add_user.Size = new System.Drawing.Size(258, 150);
             this.btn_add_user.TabIndex = 5;
-            this.btn_add_user.Text = "ADD Utilisateur";
+            this.btn_add_user.Text = "Utilisateur";
             this.btn_add_user.UseVisualStyleBackColor = false;
+            this.btn_add_user.Click += new System.EventHandler(this.btn_add_user_Click);
             // 
             // btn_facture
             // 

@@ -87,6 +87,16 @@ namespace StiveLourd
                         btn_active_clients.Visible=false;
                     frm = new Commands(this);
                     break;
+                case "USERS":
+                    // BTN Active
+                    btn_active_commandes.Visible=true;
+                    //BTN INACTIVE
+                    btn_active_accueil.Visible=false;
+                    btn_active_produits.Visible=false;
+                    btn_active_fournisseurs.Visible=false;
+                    btn_active_clients.Visible=false;
+                    frm = new Users(this);
+                    break;
                 case "CUSTOMERS":
                     // BTN Active
                      btn_active_clients.Visible=true;
@@ -126,6 +136,16 @@ namespace StiveLourd
                         btn_active_commandes.Visible=false;
                         btn_active_clients.Visible=false;
                     frm = new AddCommSuppliers(this);
+                    break;
+                case "ADD_USER":
+                    // BTN Active
+                    btn_active_fournisseurs.Visible=true;
+                    //BTN INACTIVE
+                    btn_active_accueil.Visible=false;
+                    btn_active_produits.Visible=false;
+                    btn_active_commandes.Visible=false;
+                    btn_active_clients.Visible=false;
+                    frm = new AddUser(this);
                     break;
                 case "ADD_CUSTOMERS":
                     // BTN Active

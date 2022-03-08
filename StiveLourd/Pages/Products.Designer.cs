@@ -111,7 +111,7 @@ namespace StiveLourd.Pages
             this.navContainer.Location = new System.Drawing.Point(0, 0);
             this.navContainer.Name = "navContainer";
             this.navContainer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.navContainer.Size = new System.Drawing.Size(954, 715);
+            this.navContainer.Size = new System.Drawing.Size(955, 715);
             this.navContainer.TabIndex = 7;
             this.navContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.navContainer_Paint);
             // 
